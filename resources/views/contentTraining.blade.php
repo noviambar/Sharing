@@ -54,9 +54,7 @@
         <div class="sidebar">
             <!-- Sidebar user (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                <div class="info">
-                    <a href="#" class="d-block">{{auth()->user()->name}}</a>
-                </div>
+                <span class="brand-text font-weight-bolder"><a href="#" class="d-block">{{auth()->user()->name}}</a></span>
             </div>
 
             <!-- Sidebar Menu -->
@@ -88,7 +86,6 @@
                             </li>
                         </ul>
                     </li>
-
                     @if(auth()->user()->role == 'admin')
                         <li class="nav-item">
                             <a href="{{route('register')}}" class="nav-link">
@@ -123,7 +120,78 @@
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        @yield('content')
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>Upload Content</h1>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                            <li class="breadcrumb-item active">Upload Content</li>
+                        </ol>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+
+        <section class="content">
+            <div class="container mt-5">
+                <form action="{{route('uploadTraining')}}" method="post" enctype="multipart/form-data">
+                    <h3 class="text-center mb-5">Silakan Upload Dokumen Anda</h3>
+                    @csrf
+                    @if ($message = Session::get('success'))
+                        <div class="alert alert-success">
+                            <strong>{{ $message }}</strong>
+                        </div>
+                    @endif
+
+                    @if (count($errors) > 0)
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
+                    <div class="form-group">
+                        <label>Nama</label>
+                        <input type="text" name="user_id" class="form-control" value="{{Auth::User()->name}}">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Jenis Dokumen</label>
+                        <br>
+                        <select name="jenis_doc">
+                            <option value="0">Jenis Dokumen</option>
+                            <option value="Meeting">Meeting</option>
+                            <option value="Training">Training</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" name="title" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Content</label>
+                        <textarea name="deskripsi" rows="5" cols="40" class="form-control deskripsi"></textarea>
+                    </div>
+                    <div>
+                        <div class="custom-file">
+                            <input type="file" name="file" class="custom-file-input" id="chooseFile">
+                            <label class="custom-file-label" for="chooseFile">Select file</label>
+                        </div>
+                    </div>
+                    <button type="submit" name="submit" class="btn btn-primary btn-block mt-4">
+                        Upload Content
+                    </button>
+                </form>
+            </div>
+        </section>
     </div>
     <!-- /.content-wrapper -->
 
@@ -138,5 +206,15 @@
 <script src="/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/js/demo.js"></script>
+<!-- TinyMCE -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.4.2/tinymce.min.js"></script>
+<script type= "text/javascript">tinymce.init({
+        selector: 'textarea',
+        min_height: 400,
+        element_format: 'html',
+        plugins : "pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,wordcount,advlist,autosave",
+    });
+</script>
+
 </body>
 </html>

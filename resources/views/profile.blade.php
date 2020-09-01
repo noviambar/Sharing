@@ -109,18 +109,6 @@
                         </li>
                     @endif
                     <li class="nav-item">
-                        <a href="{{ route('uploadFile') }}" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Upload File</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('uploadContent') }}" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Upload content</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
                         <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault();
               document.getElementById('logout-form').submit();">
                             <i class="nav-icon fas fa-times"></i>
@@ -164,6 +152,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <!-- /.card-header -->
+                                <a href="{{route('trash')}}">Recycle Bin</a>
                                 <div class="card-body">
                                     <table id="profile" class="table table-bordered table-striped">
                                         <thead>
@@ -172,6 +161,7 @@
                                             <th>Email</th>
                                             <th>Role</th>
                                             <th>Created_at</th>
+                                            <th>Action</th>
                                         </tr>
                                         </thead>
                                     </table>
@@ -190,13 +180,6 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-    <footer class="main-footer">
-        <div class="float-right d-none d-sm-block">
-            <b>Version</b> 3.0.5
-        </div>
-        <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
-        reserved.
-    </footer>
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
@@ -224,10 +207,11 @@
             "serverSide": true,
             "ajax": "{{route('profile.getProfile')}}",
             "columns": [
-                {"data": "name", orderable: false},
-                {"data": "email", orderable: false},
-                {"data": "role", orderable: false},
-                {"data": "created_at", orderable: false}
+                {data: 'name', orderable: false},
+                {data: 'email', orderable: false},
+                {data: 'role', orderable: false},
+                {data: 'created_at', orderable: false},
+                {data: 'action', orderable: false, width:'10%', searchable: false, classname: 'center action'}
             ]
         });
     });

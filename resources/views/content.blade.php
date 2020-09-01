@@ -54,9 +54,7 @@
         <div class="sidebar">
             <!-- Sidebar user (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                <div class="info">
-                    <a href="#" class="d-block"></a>
-                </div>
+                <span class="brand-text font-weight-bolder"><a href="#" class="d-block">{{auth()->user()->name}}</a></span>
             </div>
 
             <!-- Sidebar Menu -->
@@ -162,17 +160,43 @@
                         </div>
                     @endif
 
+                    @if (count($errors) > 0)
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
+                    <div class="form-group">
+                        <label>Nama</label>
+                        <input type="text" name="user_id" class="form-control" value="{{Auth::User()->name}}">
+                    </div>
+
                     <div class="form-group">
                         <label>Jenis Dokumen</label>
-                        <input type="text" name="jenis_doc" class="form-control"/>
+                        <br>
+                        <select name="jenis_doc">
+                            <option value="0">Jenis Dokumen</option>
+                            <option value="Meeting">Meeting</option>
+                            <option value="Training">Training</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label>Title</label>
-                        <input type="text" name="name" class="form-control"/>
+                        <input type="text" name="title" class="form-control"/>
                     </div>
                     <div class="form-group">
                         <label>Content</label>
                         <textarea name="deskripsi" rows="5" cols="40" class="form-control deskripsi"></textarea>
+                    </div>
+                    <div>
+                        <div class="custom-file">
+                            <input type="file" name="file" class="custom-file-input" id="chooseFile">
+                            <label class="custom-file-label" for="chooseFile">Select file</label>
+                        </div>
                     </div>
                     <button type="submit" name="submit" class="btn btn-primary btn-block mt-4">
                         Upload Content
@@ -183,13 +207,6 @@
     </div>
     <!-- /.content-wrapper -->
 
-    <footer class="main-footer">
-        <div class="float-right d-none d-sm-block">
-            <b>Version</b> 3.0.5
-        </div>
-        <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
-        reserved.
-    </footer>
 </div>
 <!-- ./wrapper -->
 
@@ -202,8 +219,14 @@
 <!-- AdminLTE for demo purposes -->
 <script src="/js/demo.js"></script>
 <!-- TinyMCE -->
-<script src="themes/tinymce/js/tinymce/tinymce.min.js"></script>
-<script>tinymce.init({selector: 'textarea'});</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.4.2/tinymce.min.js"></script>
+<script type= "text/javascript">tinymce.init({
+        selector: 'textarea',
+        min_height: 400,
+        element_format: 'html',
+        plugins : "pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,wordcount,advlist,autosave",
+    });
+</script>
 
 </body>
 </html>

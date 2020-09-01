@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Sharing Knowledge| Blank Page</title>
+    <title>Sharing Knowledge</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -54,9 +54,7 @@
         <div class="sidebar">
             <!-- Sidebar user (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                <div class="info">
-                    <a href="#" class="d-block">{{auth()->user()->name}}</a>
-                </div>
+                <span class="brand-text font-weight-bolder"><a href="#" class="d-block">{{auth()->user()->name}}</a></span>
             </div>
 
             <!-- Sidebar Menu -->
@@ -88,7 +86,6 @@
                             </li>
                         </ul>
                     </li>
-
                     @if(auth()->user()->role == 'admin')
                         <li class="nav-item">
                             <a href="{{route('register')}}" class="nav-link">
@@ -104,6 +101,18 @@
                             </a>
                         </li>
                     @endif
+                    <li class="nav-item">
+                        <a href="{{ route('uploadFile') }}" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Upload File</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('uploadContent') }}" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Upload Content</p>
+                        </a>
+                    </li>
                     <li class="nav-item">
                         <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault();
               document.getElementById('logout-form').submit();">
@@ -123,7 +132,68 @@
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        @yield('content')
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>Edit Content</h1>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                            <li class="breadcrumb-item active">Edit Content</li>
+                        </ol>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+
+        <section class="content">
+            <div class="container mt-5">
+                <form action="{{route('training.update',$file->id)}}" method="post" enctype="multipart/form-data">
+                    <h3 class="text-center mb-5">Silakan Edit Dokumen Anda</h3>
+                    @csrf
+                    @if ($message = Session::get('success'))
+                        <div class="alert alert-success">
+                            <strong>{{ $message }}</strong>
+                        </div>
+                    @endif
+
+                    @if (count($errors) > 0)
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
+                    <div class="form-group">
+                        <label>Jenis Dokumen</label>
+                        <input type="text" name="jenis_doc" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" name="name" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Content</label>
+                        <textarea name="deskripsi" rows="5" cols="40" class="form-control deskripsi">{{old('deskripsi') ?? $file->deskripsi }}</textarea>
+                    </div>
+                    <div>
+                        <div class="custom-file">
+                            <input type="file" name="file" class="custom-file-input" id="chooseFile">
+                            <label class="custom-file-label" for="chooseFile">Select file</label>
+                        </div>
+                    </div>
+                    <button type="submit" name="submit" class="btn btn-primary btn-block mt-4">
+                        Update
+                    </button>
+                </form>
+            </div>
+        </section>
     </div>
     <!-- /.content-wrapper -->
 
@@ -138,5 +208,15 @@
 <script src="/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/js/demo.js"></script>
+<!-- TinyMCE -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.4.2/tinymce.min.js"></script>
+<script type= "text/javascript">tinymce.init({
+        selector: 'textarea',
+        min_height: 400,
+        element_format: 'html',
+        plugins : "pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,wordcount,advlist,autosave",
+    });
+</script>
+
 </body>
 </html>

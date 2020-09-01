@@ -3,21 +3,23 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Sharing Knowledge| Blank Page</title>
+    <title>Meeting Report | Data Meeting</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="themes/adminlte/plugins/fontawesome-free/css/all.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- overlayScrollbars -->
-    <link rel="stylesheet" href="/css/adminlte.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.css"/>
+    <!-- Theme style -->
+    <link rel="stylesheet" href="themes/adminlte/dist/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
 </head>
 <body class="hold-transition sidebar-mini">
-<!-- Site wrapper -->
 <div class="wrapper">
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -27,18 +29,21 @@
                 <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="{{ route('home') }}" class="nav-link">Home</a>
+                <a href="{{route('home')}}" class="nav-link">Home</a>
             </li>
         </ul>
 
-        <!-- Right navbar links -->
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-                    <i class="fas fa-th-large"></i>
-                </a>
-            </li>
-        </ul>
+        <!-- SEARCH FORM -->
+        <form class="form-inline ml-3">
+            <div class="input-group input-group-sm">
+                <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+                <div class="input-group-append">
+                    <button class="btn btn-navbar" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
     </nav>
     <!-- /.navbar -->
 
@@ -55,7 +60,7 @@
             <!-- Sidebar user (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="info">
-                    <a href="#" class="d-block"></a>
+                    <a href="#" class="d-block">{{Auth::User()->name}}</a>
                 </div>
             </div>
 
@@ -104,18 +109,6 @@
                         </li>
                     @endif
                     <li class="nav-item">
-                        <a href="{{ route('uploadFile') }}" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Upload File</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('uploadContent') }}" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Upload Content</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
                         <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault();
               document.getElementById('logout-form').submit();">
                             <i class="nav-icon fas fa-times"></i>
@@ -139,74 +132,90 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Upload File</h1>
+                        <h1>Data Karyawan</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Upload File</li>
+                            <li class="breadcrumb-item active">Data Karyawan</li>
                         </ol>
                     </div>
                 </div>
             </div><!-- /.container-fluid -->
         </section>
 
+        <!-- Main content -->
         <section class="content">
-            <div class="container mt-5">
-                <form action="{{route('uploadFile')}}" method="post" enctype="multipart/form-data">
-                    <h3 class="text-center mb-5">Silakan Upload File Anda</h3>
-                    @csrf
-                    @if ($message = Session::get('success'))
-                        <div class="alert alert-success">
-                            <strong>{{ $message }}</strong>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <!-- /.card-header -->
+                                <a href="{{route('profile')}}">Data Karyawan</a>|
+                                <a href="{{route('trash')}}">Recycle Bin</a>
+                                <div class="card-body">
+                                    <table id="trash" class="table table-bordered table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th>Nama</th>
+                                            <th>Email</th>
+                                            <th>Role</th>
+                                            <th>Created_at</th>
+                                            <th>Action</th>
+                                        </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
                         </div>
-                    @endif
-
-                    @if (count($errors) > 0)
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-
-                    <div class="form-group">
-                        <label>Jenis Dokumen</label>
-                        <input type="text" name="jenis_doc" class="form-control"/>
+                        <!-- /.col -->
                     </div>
-
-                    <div class="custom-file">
-                        <input type="file" name="file" class="custom-file-input" id="chooseFile">
-                        <label class="custom-file-label" for="chooseFile">Select file</label>
-                    </div>
-                    <button type="submit" name="submit" class="btn btn-primary btn-block mt-4">
-                        Upload Files
-                    </button>
-                </form>
+                    <!-- /.row -->
+                </div>
+                <!-- /.container-fluid -->
             </div>
         </section>
+        <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
 
-    <footer class="main-footer">
-        <div class="float-right d-none d-sm-block">
-            <b>Version</b> 3.0.5
-        </div>
-        <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
-        reserved.
-    </footer>
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="/plugins/jquery/jquery.min.js"></script>
+<script src="themes/adminlte/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="themes/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- DataTables -->
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.js"></script>
 <!-- AdminLTE App -->
-<script src="/js/adminlte.min.js"></script>
+<script src="themes/adminlte/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="/js/demo.js"></script>
+<script src="themes/adminlte/dist/js/demo.js"></script>
+<!-- page script -->
+<script>
+    $().ready(function () {
+        $("#trash").DataTable({
+            "processing": true,
+            "serverSide": true,
+            "ajax": "{{route('profile.getTrash')}}",
+            "columns": [
+                {data: 'name', orderable: false},
+                {data: 'email', orderable: false},
+                {data: 'role', orderable: false},
+                {data: 'created_at', orderable: false},
+                {data: 'action', orderable: false, width:'10%', searchable: false, classname: 'center action'}
+            ]
+        });
+    });
+</script>
 </body>
 </html>

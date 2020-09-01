@@ -25,7 +25,6 @@ Route::get('/', function(){
 Route::get('/meeting','MeetingController@meeting')->name('meeting');
 Route::get('/meeting/getMeeting', 'MeetingController@getMeeting')->name('meeting.getMeeting');
 Route::get('/meeting/show/{id}', 'MeetingController@show')->name('meeting.show');
-Route::get('/meeting/show/download/{id}', 'MeetingController@download')->name('meeting.show.download');
 Route::get('/meeting/edit/{id}', 'MeetingController@edit')->name('meeting.edit');
 Route::post('/meeting/edit/{id}', 'MeetingController@update')->name('meeting.update');
 Route::get('/meeting/delete/{id}', 'MeetingController@delete')->name('meeting.delete');
@@ -47,6 +46,9 @@ Route::post('/upload','UploadController@uploadfile')->name('uploadFile');
 Route::get('/content','ContentController@createForm')->name('content');
 Route::post('/content','ContentController@uploadcontent')->name('uploadContent');
 
+Route::get('/content/training','ContentController@createFormTraining')->name('createFormTraining');
+Route::post('/content/training','ContentController@uploadtraining')->name('uploadTraining');
+
 Route::get('/logproblem','LogController@logproblem')->name('logproblem');
 
 Route::get('/register','RegisterController@register')->name('register');
@@ -54,9 +56,15 @@ Route::post('/postRegister','RegisterController@postRegister')->name('postRegist
 
 
 Route::get('/profile','ProfileController@profile')->name('profile');
+Route::get('/trash','ProfileController@trash')->name('trash');
 Route::get('/profile/getProfile','ProfileController@getProfile')->name('profile.getProfile');
+Route::get('/profile/getTrash','ProfileController@getTrash')->name('profile.getTrash');
 Route::get('/profile/delete/{id}', 'ProfileController@delete')->name('profile.delete');
+Route::get('/profile/restore/{id}', 'ProfileController@restore')->name('profile.restore');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home/edit/{id}', 'HomeController@edit')->name('home.edit');
 Route::post('/home/edit/{id}', 'HomeController@update')->name('home.update');
+
+Route::get('/logActivity/getActivity', 'MeetingController@getActivity')->name('logActivity.getActivity');
+Route::get('/logActivity', 'MeetingController@logActivity')->name('logActivity');

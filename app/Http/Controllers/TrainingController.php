@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\file;
 use DataTables;
+use Alert;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -14,19 +15,19 @@ use Illuminate\Support\Facades\DB;
 class TrainingController extends Controller
 {
     public function training(){
-        $documents = file::all();
+        $documents = File::with('user')->get();
 
         return view('training',['files' => $documents]);
     }
 
     public function getTraining(){
-        $file = file::select('id', 'name','jenis_doc','file_path','created_at')->where('jenis_doc','training');
+        $file = File::with('user')->select('id','user_id', 'title', 'jenis_doc', 'file_path', 'created_at')->where('jenis_doc','training');
         return DataTables::of($file)
             ->addColumn('action', function($file) {
                 $result = '';
-                $result .= '<a href="'.route('training.show', $file->id).'" class="btn btn-success btn-sm"><i class="fa fa-search"></i></a>';
-                $result .= '<a href="'.route('training.edit', $file->id).'" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>';
-                $result .= '<a href="'.route('training.delete', $file->id).'" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>';
+                $result .= '<a href="'.route('training.show', $file->id).'" class="btn btn-success btn-sm"><i class="fa fa-search"></i></a> &nbsp';
+                $result .= '<a href="'.route('training.edit', $file->id).'" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a> &nbsp';
+                $result .= '<a href="'.route('training.delete', $file->id).'" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a> &nbsp';
                 return $result;
             })
             ->make(true);
@@ -55,10 +56,11 @@ class TrainingController extends Controller
             $file->file_path = $filePath;
         }
         $file->jenis_doc = $request->jenis_doc;
-        $file->name = $request->name;
+        $file->title = $request->title;
         $file->deskripsi = $request->deskripsi;
 
         $file->save();
+        Alert::success('Messsage', 'Optional Title');
         return back()->with('status', 'File has been Update');
 
     }

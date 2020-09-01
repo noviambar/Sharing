@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Meeting Report | Data Meeting</title>
+    <title>Meeting Report</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -17,7 +17,8 @@
     <link rel="stylesheet" href="themes/adminlte/dist/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-
+    <!-- SweetAlert -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -109,18 +110,6 @@
                         </li>
                     @endif
                     <li class="nav-item">
-                        <a href="{{ route('uploadFile') }}" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Upload File</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('uploadContent') }}" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Upload Content</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
                         <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault();
               document.getElementById('logout-form').submit();">
                             <i class="nav-icon fas fa-times"></i>
@@ -148,7 +137,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
                             <li class="breadcrumb-item active">Data Meeting</li>
                         </ol>
                     </div>
@@ -164,11 +153,15 @@
                         <div class="card">
                             <div class="card-header">
                                 <!-- /.card-header -->
+                                <div class="pull-right">
+                                    <a href="{{route('uploadContent')}}" class="btn btn-success"><i class="fa fa-plus"></i> Add</a>
+                                </div>
                                 <div class="card-body">
                                     <table id="meeting" class="table table-bordered table-striped">
                                         <thead>
                                         <tr>
                                             <th>Nama</th>
+                                            <th>Title</th>
                                             <th>Jenis Dokumen</th>
                                             <th>Created_at</th>
                                             <th>Action</th>
@@ -190,13 +183,6 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-    <footer class="main-footer">
-        <div class="float-right d-none d-sm-block">
-            <b>Version</b> 3.0.5
-        </div>
-        <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
-        reserved.
-    </footer>
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
@@ -216,6 +202,8 @@
 <script src="themes/adminlte/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="themes/adminlte/dist/js/demo.js"></script>
+<!-- Sweet Alert -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
 <!-- page script -->
 <script>
     $().ready(function () {
@@ -224,10 +212,11 @@
             "serverSide": true,
             "ajax": "{{route('meeting.getMeeting')}}",
             "columns": [
-                {data: 'name', orderable: false},
+                {data: 'user.name', orderable: false,},
+                {data: 'title', orderable: false},
                 {data: 'jenis_doc', orderable: false, searchable: false},
                 {data: 'created_at', orderable: false},
-                {data: "action", orderable: false, searchable: false, width: '15%', classname: 'center action'}
+                {data: "action", orderable: false, searchable: false, width: '20%', classname: 'center action'}
 
             ]
         });

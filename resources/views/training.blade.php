@@ -109,18 +109,6 @@
                         </li>
                     @endif
                     <li class="nav-item">
-                        <a href="{{ route('uploadFile') }}" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Upload File</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('uploadContent') }}" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Upload Content</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
                         <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault();
               document.getElementById('logout-form').submit();">
                             <i class="nav-icon fas fa-times"></i>
@@ -164,11 +152,15 @@
                         <div class="card">
                             <div class="card-header">
                                 <!-- /.card-header -->
+                                <div class="pull-right">
+                                    <a href="{{route('uploadTraining')}}" class="btn btn-dark"><i class="fa fa-plus"></i> Add</a>
+                                </div>
                                 <div class="card-body">
                                     <table id="training" class="table table-bordered table-striped">
                                         <thead>
                                         <tr>
                                             <th>Nama</th>
+                                            <th>Title</th>
                                             <th>Jenis Dokumen</th>
                                             <th>Created_at</th>
                                             <th>Action</th>
@@ -190,13 +182,6 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-    <footer class="main-footer">
-        <div class="float-right d-none d-sm-block">
-            <b>Version</b> 3.0.5
-        </div>
-        <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
-        reserved.
-    </footer>
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
@@ -224,7 +209,8 @@
             "serverSide": true,
             "ajax": "{{route('training.getTraining')}}",
             "columns": [
-                {data: 'name', orderable: false},
+                {data: 'user.name', orderable: false},
+                {data: 'title', orderable: false},
                 {data: 'jenis_doc', orderable: false, searchable: false},
                 {data: 'created_at', orderable: false},
                 {data: 'action', orderable: false, searchable: false, width: '15%', classname: 'center action'}

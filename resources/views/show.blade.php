@@ -104,18 +104,6 @@
                         </li>
                     @endif
                     <li class="nav-item">
-                        <a href="{{ route('uploadFile') }}" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Upload File</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('uploadContent') }}" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Upload Content</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
                         <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault();
               document.getElementById('logout-form').submit();">
                             <i class="nav-icon fas fa-times"></i>
@@ -143,7 +131,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
                             <li class="breadcrumb-item active">View</li>
                         </ol>
                     </div>
@@ -153,7 +141,10 @@
 
         <section class="content">
             <div class="container mt-5">
-                <form action="{{route('meeting.show.download', $file->id)}}" enctype="multipart/form-data">
+                <div class="pull-right">
+                    <a href="{{route('meeting.delete', $file->id)}}" class="btn btn-danger"><i class="fa fa-plus"></i> Delete</a>
+                </div>
+                <form action="#" enctype="multipart/form-data">
                     <h3 class="text-center mb-5"></h3>
                     @csrf
                     @if ($message = Session::get('success'))
@@ -178,9 +169,9 @@
                                value="{{old('jenis_doc') ?? $file->jenis_doc }}" readonly>
                     </div>
                     <div class="form-group">
-                        <label>Name</label>
-                        <input type="text" name="name" class="form-control"
-                               value="{{old('name') ?? $file->name }}" readonly>
+                        <label>Title</label>
+                        <input type="text" name="title" class="form-control"
+                               value="{{old('title') ?? $file->title }}" readonly>
                     </div>
                     <div class="form-group">
                         <label>Content</label>
@@ -190,27 +181,17 @@
 
                     <div class="form-group">
                         <div class="custom-file">
-                            {{--                            <input type="file" name="file" class="custom-file-input" id="chooseFile">--}}
+                            {{--<input type="file" name="file" class="custom-file-input" id="chooseFile">--}}
                             <label class="custom-file-label" for="chooseFile"
                                    readonly></label>
                         </div>
                     </div>
-                    <button type="submit" name="submit" class="btn btn-success btn-block mt-4">
-                        Download
-                    </button>
                 </form>
             </div>
         </section>
     </div>
     <!-- /.content-wrapper -->
 
-    <footer class="main-footer">
-        <div class="float-right d-none d-sm-block">
-            <b>Version</b> 3.0.5
-        </div>
-        <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
-        reserved.
-    </footer>
 </div>
 <!-- ./wrapper -->
 
@@ -223,8 +204,15 @@
 <!-- AdminLTE for demo purposes -->
 <script src="/js/demo.js"></script>
 <!-- TinyMCE -->
-<script src="themes/tinymce/js/tinymce/tinymce.min.js"></script>
-<script>tinymce.init({selector: 'textarea'});</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.4.2/tinymce.min.js"></script>
+<script type= "text/javascript">tinymce.init({
+        selector: 'textarea',
+        readonly: 1,
+        min_height: 400,
+        element_format: 'html',
+        plugins : "pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,wordcount,advlist,autosave",
+    });
+</script>
 
 </body>
 </html>
