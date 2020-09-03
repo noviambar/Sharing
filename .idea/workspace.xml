@@ -19,38 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75e17794-c326-487c-bd0e-6776f10f7a7d" name="Default Changelist" comment="first commit">
-      <change afterPath="$PROJECT_DIR$/app/Helpers/UserActivity.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/ActivityUser.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/belajar_laravel.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/belajar_laravel.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/File.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/File.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Helpers/LogActivity.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/LogActivity.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ContentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ContentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MeetingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MeetingController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TrainingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TrainingController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_10_075502_create_files_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_10_075502_create_files_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/content.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/content.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/contentTraining.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/contentTraining.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/editTraining.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/editTraining.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/logActivity.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/logActivity.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/meeting.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/meeting.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/training.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/training.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/trash.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/trash.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-    </list>
+    <list default="true" id="75e17794-c326-487c-bd0e-6776f10f7a7d" name="Default Changelist" comment="first commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -233,7 +202,7 @@
       <workItem from="1598844752200" duration="16337000" />
       <workItem from="1598931745669" duration="19858000" />
       <workItem from="1599019304544" duration="20045000" />
-      <workItem from="1599102798918" duration="21605000" />
+      <workItem from="1599102798918" duration="22134000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1598946780549</created>
@@ -242,7 +211,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598946780549</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="first commit">
+      <created>1599131560487</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1599131560487</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -281,10 +257,10 @@
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="796" y="276" key="NewPhpFileDialog/0.0.1280.689@0.0.1280.689" timestamp="1599124374037" />
-    <state x="233" y="78" key="Vcs.Push.Dialog.v2" timestamp="1598946831319">
+    <state x="233" y="78" key="Vcs.Push.Dialog.v2" timestamp="1599131572844">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="233" y="78" key="Vcs.Push.Dialog.v2/0.0.1280.689@0.0.1280.689" timestamp="1598946831319" />
+    <state x="233" y="78" key="Vcs.Push.Dialog.v2/0.0.1280.689@0.0.1280.689" timestamp="1599131572844" />
     <state x="458" y="259" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1599131340795">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
