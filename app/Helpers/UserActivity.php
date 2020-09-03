@@ -2,15 +2,13 @@
 namespace App\Helpers;
 
 use Request;
-use App\Activity as LogActivityModel;
+use App\ActivityUser as LogActivityModel;
 
-class LogActivity{
+class UserActivity{
     public static function AddToLog($subject){
         $log = [];
-        $log['title'] = $subject;
         $log['user_id'] = auth()->user()->id;
-        $log['name'] = auth()->user()->name;
-        $log['file_id'] = $subject()->id;
+        $log['activity'] = $subject;
         $log['created_at'] = $subject;
         LogActivityModel::created($log);
     }

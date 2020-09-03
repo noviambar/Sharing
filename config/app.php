@@ -179,6 +179,7 @@ return [
         //Tambahan Instalasi Package:
         Yajra\DataTables\DataTablesServiceProvider::class,
         UxWeb\SweetAlert\SweetAlertServiceProvider::class,
+        Spatie\Activitylog\ActivitylogServiceProvider::class,
 
     ],
 
@@ -234,6 +235,7 @@ return [
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
         'Alert' => UxWeb\SweetAlert\SweetAlert::class,
         'LogActivity' => App\Helpers\LogActivity::class,
+        'UserActivity' => App\Helpers\UserActivity::class,
     ],
 
 ];

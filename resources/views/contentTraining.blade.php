@@ -139,7 +139,7 @@
 
         <section class="content">
             <div class="container mt-5">
-                <form action="{{route('uploadTraining')}}" method="post" enctype="multipart/form-data">
+                <form action="{{route('uploadContent')}}" method="post" enctype="multipart/form-data">
                     <h3 class="text-center mb-5">Silakan Upload Dokumen Anda</h3>
                     @csrf
                     @if ($message = Session::get('success'))
@@ -160,7 +160,7 @@
 
                     <div class="form-group">
                         <label>Nama</label>
-                        <input type="text" name="user_id" class="form-control" value="{{Auth::User()->name}}">
+                        <input type="text" name="user_id" class="form-control" value="{{Auth::User()->name}}" readonly>
                     </div>
 
                     <div class="form-group">
@@ -182,8 +182,8 @@
                     </div>
                     <div>
                         <div class="custom-file">
-                            <input type="file" name="file" class="custom-file-input" id="chooseFile">
-                            <label class="custom-file-label" for="chooseFile">Select file</label>
+                            <input type="file" name="file" class="form-control-sidebar" id="chooseFile">
+                            {{--                            <label class="custom-file-label" for="chooseFile"></label>--}}
                         </div>
                     </div>
                     <button type="submit" name="submit" class="btn btn-primary btn-block mt-4">

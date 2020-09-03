@@ -8,13 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="themes/adminlte/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="/themes/adminlte/plugins/fontawesome-free/css/all.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- DataTables -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.css"/>
     <!-- Theme style -->
-    <link rel="stylesheet" href="themes/adminlte/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="/themes/adminlte/dist/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <!-- SweetAlert -->
@@ -33,18 +33,6 @@
                 <a href="{{route('home')}}" class="nav-link">Home</a>
             </li>
         </ul>
-
-        <!-- SEARCH FORM -->
-        <form class="form-inline ml-3">
-            <div class="input-group input-group-sm">
-                <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-                <div class="input-group-append">
-                    <button class="btn btn-navbar" type="submit">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </div>
-            </div>
-        </form>
     </nav>
     <!-- /.navbar -->
 
@@ -137,8 +125,9 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Data Meeting</li>
+                            <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('meeting')}}">Data Meeting</a></li>
+                            <li class="breadcrumb-item active">Log Activity</li>
                         </ol>
                     </div>
                 </div>
@@ -147,33 +136,33 @@
 
         <!-- Main content -->
         <section class="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <!-- /.card-header -->
-                                <div class="card-body">
-                                    <table id="activity" class="table table-bordered table-striped">
-                                        <thead>
-                                        <tr>
-                                            <th>Nama</th>
-                                            <th>Title</th>
-                                            <th>Created_at</th>
-                                        </tr>
-                                        </thead>
-                                    </table>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <!-- /.card-header -->
+                                    <div class="card-body">
+                                        <table id="activity" class="table table-bordered table-striped">
+                                            <thead>
+                                            <tr>
+                                                <th>Nama</th>
+                                                <th>Title</th>
+                                                <th>Created_at</th>
+                                            </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                    <!-- /.card-body -->
                                 </div>
-                                <!-- /.card-body -->
+                                <!-- /.card -->
                             </div>
-                            <!-- /.card -->
+                            <!-- /.col -->
                         </div>
-                        <!-- /.col -->
+                        <!-- /.row -->
                     </div>
-                    <!-- /.row -->
+                    <!-- /.container-fluid -->
                 </div>
-                <!-- /.container-fluid -->
-            </div>
         </section>
         <!-- /.content -->
     </div>
@@ -188,15 +177,15 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="themes/adminlte/plugins/jquery/jquery.min.js"></script>
+<script src="/themes/adminlte/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="themes/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/themes/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- DataTables -->
 <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.js"></script>
 <!-- AdminLTE App -->
-<script src="themes/adminlte/dist/js/adminlte.min.js"></script>
+<script src="/themes/adminlte/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="themes/adminlte/dist/js/demo.js"></script>
+<script src="/themes/adminlte/dist/js/demo.js"></script>
 <!-- Sweet Alert -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
 <!-- page script -->
@@ -205,16 +194,9 @@
         $("#activity").DataTable({
             "processing": true,
             "serverSide": true,
-            "ajax": "{{route('logActivity.getActivity')}}",
+            "ajax": "{{route('logActivity.getActivity',$id)}}",
             "columns": [
-                {data: 'name', orderable: false,
-                    "render": function(data, type, row, meta){
-                        if(type === 'display'){
-                            data = '<a href="{{route('profile')}}">' + data + '</a>';
-                        }
-                        return data;
-                    }
-                },
+                {data: 'name', orderable: false},
                 {data: 'title', orderable: false},
                 {data: 'created_at', orderable: false},
 

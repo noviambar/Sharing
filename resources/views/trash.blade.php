@@ -132,12 +132,13 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Data Karyawan</h1>
+                        <h1>Recycle Bin</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Data Karyawan</li>
+                            <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('profile')}}">Data Karyawan</a></li>
+                            <li class="breadcrumb-item active">Trash</li>
                         </ol>
                     </div>
                 </div>

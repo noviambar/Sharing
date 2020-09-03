@@ -132,6 +132,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
+                            <li class="breadcrumb-item">Document</li>
                             <li class="breadcrumb-item active">View</li>
                         </ol>
                     </div>
@@ -180,11 +181,9 @@
                     </div>
 
                     <div class="form-group">
-                        <div class="custom-file">
-                            {{--<input type="file" name="file" class="custom-file-input" id="chooseFile">--}}
-                            <label class="custom-file-label" for="chooseFile"
-                                   readonly></label>
-                        </div>
+                        <label>File</label>
+                        <input type="text" name="namaFile" class="form-control"
+                               value="{{old('namaFile') ?? $file->namaFile }}" readonly>
                     </div>
                 </form>
             </div>

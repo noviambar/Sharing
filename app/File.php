@@ -13,11 +13,16 @@ class File extends Model
         'title',
         'jenis_doc',
         'deskripsi',
-        'file_path'
+        'file_path',
+        'namaFile'
     ];
 
     public function user(){
         return $this->belongsTo(User::class);
+    }
+
+    public function history(){
+        return $this->hasMany('document', 'file_id','id');
     }
 
 }

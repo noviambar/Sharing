@@ -102,18 +102,6 @@
                         </li>
                     @endif
                     <li class="nav-item">
-                        <a href="{{ route('uploadFile') }}" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Upload File</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('uploadContent') }}" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Upload Content</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
                         <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault();
               document.getElementById('logout-form').submit();">
                             <i class="nav-icon fas fa-times"></i>
@@ -172,7 +160,7 @@
 
                     <div class="form-group">
                         <label>Nama</label>
-                        <input type="text" name="user_id" class="form-control" value="{{Auth::User()->name}}">
+                        <input type="text" name="user_id" class="form-control" value="{{Auth::User()->name}}" readonly>
                     </div>
 
                     <div class="form-group">
@@ -194,8 +182,8 @@
                     </div>
                     <div>
                         <div class="custom-file">
-                            <input type="file" name="file" class="custom-file-input" id="chooseFile">
-                            <label class="custom-file-label" for="chooseFile">Select file</label>
+                            <input type="file" name="file" class="form-control-sidebar" id="chooseFile">
+{{--                            <label class="custom-file-label" for="chooseFile"></label>--}}
                         </div>
                     </div>
                     <button type="submit" name="submit" class="btn btn-primary btn-block mt-4">

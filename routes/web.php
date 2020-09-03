@@ -40,9 +40,6 @@ Route::get('/training/delete/{id}', 'TrainingController@delete')->name('training
 Route::delete('/training/delete/{id}', 'TrainingController@destroy')->name('training.destroy');
 
 
-Route::get('/upload','UploadController@createForm');
-Route::post('/upload','UploadController@uploadfile')->name('uploadFile');
-
 Route::get('/content','ContentController@createForm')->name('content');
 Route::post('/content','ContentController@uploadcontent')->name('uploadContent');
 
@@ -66,5 +63,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home/edit/{id}', 'HomeController@edit')->name('home.edit');
 Route::post('/home/edit/{id}', 'HomeController@update')->name('home.update');
 
-Route::get('/logActivity/getActivity', 'MeetingController@getActivity')->name('logActivity.getActivity');
-Route::get('/logActivity', 'MeetingController@logActivity')->name('logActivity');
+Route::get('/logActivity/getActivity/{id}', 'MeetingController@getActivity')->name('logActivity.getActivity');
+Route::get('/logActivity/{id}', 'MeetingController@logActivity')->name('logActivity');
+
+Route::get('/profile/getActivityUser/{id}', 'ProfileController@getActivity')->name('profile.getActivityUser');
+Route::get('/profile/logActivity/{id}', 'ProfileController@logActivity')->name('profile.logActivity');
+

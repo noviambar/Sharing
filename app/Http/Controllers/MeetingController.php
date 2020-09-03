@@ -8,7 +8,6 @@ use App\file;
 use DataTables;
 use App\Activity;
 use Illuminate\Support\Facades\Auth;
-use UxWeb\SweetAlert\SweetAlert;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -71,6 +70,7 @@ class MeetingController extends Controller
             $filePath = $request->file('file')->storeAs('uploads', $fileName, 'public');
 
             $file->file_path = $filePath;
+            $file->namaFile = $fileName;
         }
         $file->jenis_doc = $request->jenis_doc;
         $file->title = $request->title;
@@ -83,7 +83,13 @@ class MeetingController extends Controller
         $activity->title = $request->title;
         $activity->user_id = Auth::user()->id;
         $activity->name = Auth::user()->name;
+        $activity->file_id = $file->id;
         $activity->save();
+
+        $activityuser = new ActivityUser();
+        $activityuser->user_id = Auth::user()->id;
+        $activityuser->activity = 'File telah di update';
+        $activityuser->save();
         return redirect('meeting');
 
     }
@@ -110,18 +116,19 @@ class MeetingController extends Controller
         ]);
     }
 
-    public function logActivity(){
-        \LogActivity::logActivityLists();
-        return view('logActivity');
+    public function logActivity($id){
+
+        \LogActivity::logActivityLists($id);
+        return view('logActivity',compact('id'));
     }
 
-    public function getActivity()
+    public function getActivity($id)
     {
-        $file = Activity::select('id','name','user_id', 'title', 'created_at');
+        $documents = Activity::with('document')->select('id','name','file_id','user_id', 'title', 'created_at')->where('file_id', $id);
 
-        return DataTables::of($file)
-            ->editColumn('created_at', function ($file){
-                return Carbon::parse($file->created_at,'Asia/Jakarta')->format('d-m-Y');
+        return DataTables::of($documents)
+            ->editColumn('created_at', function ($documents){
+                return Carbon::parse($documents->created_at,'Asia/Jakarta')->format('d-m-Y');
             })
             ->make(true);
     }

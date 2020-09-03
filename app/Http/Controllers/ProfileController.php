@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\ActivityUser;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use DataTables;
@@ -26,7 +27,8 @@ class ProfileController extends Controller
             })
             ->addColumn('action', function ($user) {
                 $result = '';
-                $result .= '<a href="' . route('profile.delete', $user->id) . '" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>';
+                $result .= '<a href="' . route('profile.delete', $user->id) . '" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></a> &nbsp';
+                $result .= '<a href="' . route('profile.logActivity', $user->id) . '" class="btn btn-outline-info btn-sm"><i class="fa fa-info"></i></a>';
                 return $result;
             })
             ->make(true);
@@ -63,4 +65,20 @@ class ProfileController extends Controller
         return redirect('profile');
     }
 
+    public function logActivity($id){
+
+        \UserActivity::logActivityLists($id);
+        return view('ActivityUser',compact('id'));
+    }
+
+    public function getActivity($id)
+    {
+        $documents = ActivityUser::with('users')->select('id','user_id', 'activity', 'created_at')->where('user_id',$id);
+
+        return DataTables::of($documents)
+            ->editColumn('created_at', function ($documents){
+                return Carbon::parse($documents->created_at,'Asia/Jakarta')->format('d-m-Y');
+            })
+            ->make(true);
+    }
 }

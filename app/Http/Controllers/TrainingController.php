@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Activity;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\file;
 use DataTables;
@@ -25,9 +27,10 @@ class TrainingController extends Controller
         return DataTables::of($file)
             ->addColumn('action', function($file) {
                 $result = '';
-                $result .= '<a href="'.route('training.show', $file->id).'" class="btn btn-success btn-sm"><i class="fa fa-search"></i></a> &nbsp';
-                $result .= '<a href="'.route('training.edit', $file->id).'" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a> &nbsp';
-                $result .= '<a href="'.route('training.delete', $file->id).'" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a> &nbsp';
+                $result .= '<a href="'.route('training.show', $file->id).'" class="btn btn-outline-success btn-sm"><i class="fa fa-search"></i></a> &nbsp';
+                $result .= '<a href="'.route('training.edit', $file->id).'" class="btn btn-outline-primary btn-sm"><i class="fa fa-edit"></i></a> &nbsp';
+                $result .= '<a href="' . route('logActivity', $file->id) . '" class="btn btn-outline-info btn-sm"><i class="fa fa-info"></i></a> &nbsp';
+                $result .= '<a target="_blank" href="'.asset(Storage::url($file->file_path)).'" class="btn btn-outline-secondary btn-sm"><i class="fa fa-file"></i></a> &nbsp';
                 return $result;
             })
             ->make(true);
@@ -36,7 +39,7 @@ class TrainingController extends Controller
 
     public function edit($id){
         $file = file::findOrFail($id);
-        return view('edit', compact('file'), [
+        return view('editTraining', compact('file'), [
             'file' => $file
         ]);
     }
@@ -88,5 +91,22 @@ class TrainingController extends Controller
         return view('show', compact('file'), [
             'file' => $file
         ]);
+    }
+
+    public function logActivity($id){
+
+        \LogActivity::logActivityLists($id);
+        return view('logActivity',compact('id'));
+    }
+
+    public function getActivity($id)
+    {
+        $documents = Activity::with('document')->select('id','name','file_id','user_id', 'title', 'created_at')->where('file_id', $id);
+
+        return DataTables::of($documents)
+            ->editColumn('created_at', function ($documents){
+                return Carbon::parse($documents->created_at,'Asia/Jakarta')->format('d-m-Y');
+            })
+            ->make(true);
     }
 }

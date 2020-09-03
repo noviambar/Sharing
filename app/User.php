@@ -25,6 +25,10 @@ class User extends Authenticatable
         return $this->hasMany('file', 'user_id','id');
     }
 
+    public function activity(){
+        return $this->hasMany('users','user_id','id');
+    }
+
     /**
      * The attributes that should be hidden for arrays.
      *

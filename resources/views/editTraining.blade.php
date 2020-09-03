@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Sharing Knowledge</title>
+    <title>Sharing Knowledge| Blank Page</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -102,12 +102,6 @@
                         </li>
                     @endif
                     <li class="nav-item">
-                        <a href="{{ route('uploadFile') }}" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Upload File</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
                         <a href="{{ route('uploadContent') }}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Upload Content</p>
@@ -137,12 +131,13 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Edit Content</h1>
+                        <h1>Upload Content</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Edit Content</li>
+                            <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
+                            <li class="breadcrumb-item "><a href="{{route('training')}}">Data Training</a></li>
+                            <li class="breadcrumb-item active">Upload Content</li>
                         </ol>
                     </div>
                 </div>
@@ -151,8 +146,8 @@
 
         <section class="content">
             <div class="container mt-5">
-                <form action="{{route('training.update',$file->id)}}" method="post" enctype="multipart/form-data">
-                    <h3 class="text-center mb-5">Silakan Edit Dokumen Anda</h3>
+                <form action="{{route('meeting.update', $file->id)}}" method="post" enctype="multipart/form-data">
+                    <h3 class="text-center mb-5">Silakan Upload Dokumen Anda</h3>
                     @csrf
                     @if ($message = Session::get('success'))
                         <div class="alert alert-success">
@@ -171,12 +166,22 @@
                     @endif
 
                     <div class="form-group">
+                        <label>Nama</label>
+                        <input type="text" name="user_id" class="form-control" value="{{Auth::User()->name}}">
+                    </div>
+
+                    <div class="form-group">
                         <label>Jenis Dokumen</label>
-                        <input type="text" name="jenis_doc" class="form-control"/>
+                        <br>
+                        <select name="jenis_doc">
+                            <option value="0">Jenis Dokumen</option>
+                            <option value="Meeting">Meeting</option>
+                            <option value="Training">Training</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label>Title</label>
-                        <input type="text" name="name" class="form-control"/>
+                        <input type="text" name="title" class="form-control" value="{{old('title') ?? $file->title}}">
                     </div>
                     <div class="form-group">
                         <label>Content</label>
@@ -189,7 +194,7 @@
                         </div>
                     </div>
                     <button type="submit" name="submit" class="btn btn-primary btn-block mt-4">
-                        Update
+                        Upload Content
                     </button>
                 </form>
             </div>
