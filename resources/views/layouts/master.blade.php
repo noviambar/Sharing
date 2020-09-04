@@ -54,7 +54,7 @@
             <!-- Sidebar user (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="info">
-                    <a href="#" class="text-capitalize font-weight-bolder"></a>
+                    <a href="#" class="text-capitalize font-weight-bolder">{{auth()->user()->name}}</a>
                 </div>
             </div>
 
@@ -88,7 +88,7 @@
                         </ul>
                     </li>
 
-
+                    @if(auth()->user()->role == 'admin')
                         <li class="nav-item">
                             <a href="{{route('register')}}" class="nav-link">
                                 <i class="nav-icon fas fa-user"></i>
@@ -102,7 +102,7 @@
                                 <p>Data Karyawan</p>
                             </a>
                         </li>
-
+                    @endif
                     <li class="nav-item">
                         <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault();
               document.getElementById('logout-form').submit();">

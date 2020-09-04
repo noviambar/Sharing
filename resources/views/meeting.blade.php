@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Meeting Report</title>
+    <title>Sharing Knowledge</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -143,7 +143,9 @@
                                 <!-- /.card-header -->
                                 <div class="pull-right">
                                     <a href="{{route('uploadContent')}}" class="btn btn-success"><i class="fa fa-plus"></i> Add</a>
-                                    <a href="{{route('trashmeeting')}}" class="btn btn-warning"><i class="fa fa-trash-alt"></i> Trash Data Meeting</a>
+                                    @if(auth()->user()->role == 'admin')
+                                        <a href="{{route('trashmeeting')}}" class="btn btn-warning"><i class="fa fa-trash-alt"></i> Trash Data Meeting</a>
+                                    @endif
                                 </div>
                                 <div class="card-body">
                                     <table id="meeting" class="table table-bordered table-striped">

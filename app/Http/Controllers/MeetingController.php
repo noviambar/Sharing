@@ -35,7 +35,9 @@ class MeetingController extends Controller
                 $result = '';
                 $result .= '<a href="' . route('meeting.show', $file->id) . '" class="btn btn-outline-success btn-sm"><i class="fa fa-search"></i></a> &nbsp';
                 $result .= '<a href="' . route('meeting.edit', $file->id) . '" class="btn btn-outline-primary btn-sm"><i class="fa fa-edit"></i></a> &nbsp';
-                $result .= '<a href="' . route('logActivity', $file->id) . '" class="btn btn-outline-info btn-sm"><i class="fa fa-info"></i></a> &nbsp';
+                if (auth()->user()->role == 'admin'){
+                    $result .= '<a href="' . route('logActivity', $file->id) . '" class="btn btn-outline-info btn-sm"><i class="fa fa-info"></i></a> &nbsp';
+                }
                 $result .= '<a target="_blank" href="'.asset(Storage::url($file->file_path)).'" class="btn btn-outline-secondary btn-sm"><i class="fa fa-file"></i></a> &nbsp';
                 return $result;
             })
@@ -89,7 +91,7 @@ class MeetingController extends Controller
 
         $activityuser = new ActivityUser();
         $activityuser->user_id = Auth::user()->id;
-        $activityuser->activity = 'File Training telah dibuat';;
+        $activityuser->activity = 'User telah melakukan Update Data Meeting';;
         $activityuser->save();
         return redirect('meeting');
 
@@ -128,6 +130,9 @@ class MeetingController extends Controller
     public function getTrash(){
         $file = File::with('user')->onlyTrashed();
         return DataTables::of($file)
+            ->editColumn('created_at', function ($documents){
+                return Carbon::parse($documents->created_at,'Asia/Jakarta')->format('d-m-Y');
+            })
             ->addColumn('action', function ($file) {
                 $result = '';
                 $result .= '<a href="' . route('meeting.restore', $file->id) . '" class="btn btn-outline-success btn-sm"><i class="fa fa-trash-restore"></i></a> &nbsp';
@@ -153,6 +158,11 @@ class MeetingController extends Controller
         $file = File::onlyTrashed()->where('id',$id);
         $file->restore();
         return redirect('meeting');
+    }
+
+    public function deleteActivity($id){
+        DB::table('activities')->where('id',$id)->delete();
+        return back();
     }
 
 }

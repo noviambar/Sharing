@@ -27,7 +27,9 @@ class ProfileController extends Controller
             })
             ->addColumn('action', function ($user) {
                 $result = '';
-                $result .= '<a href="' . route('profile.delete', $user->id) . '" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></a> &nbsp';
+                if (auth()->user()->id != $user->id) {
+                    $result .= '<a href="' . route('profile.delete', $user->id) . '" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></a> &nbsp';
+                }
                 $result .= '<a href="' . route('profile.logActivity', $user->id) . '" class="btn btn-outline-info btn-sm"><i class="fa fa-info"></i></a>';
                 return $result;
             })
@@ -37,10 +39,12 @@ class ProfileController extends Controller
     public function getTrash(){
         $user = user::onlyTrashed();
         return DataTables::of($user)
+            ->editColumn('created_at', function ($file){
+                return Carbon::parse($file->created_at,'Asia/Jakarta')->format('d-m-Y');
+            })
             ->addColumn('action', function ($user) {
                 $result = '';
                 $result .= '<a href="' . route('profile.restore', $user->id) . '" class="btn btn-success btn-sm"><i class="fa fa-trash-restore"></i></a>';
-                $result .= '<a href="' . route('profile.delete', $user->id) . '" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>';
                 return $result;
             })
             ->make(true);

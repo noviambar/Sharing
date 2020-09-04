@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Activity;
+use App\ActivityUser;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\file;
 use DataTables;
 use Alert;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -32,7 +34,9 @@ class TrainingController extends Controller
                 $result = '';
                 $result .= '<a href="'.route('training.show', $file->id).'" class="btn btn-outline-success btn-sm"><i class="fa fa-search"></i></a> &nbsp';
                 $result .= '<a href="'.route('training.edit', $file->id).'" class="btn btn-outline-primary btn-sm"><i class="fa fa-edit"></i></a> &nbsp';
-                $result .= '<a href="' . route('logActivity', $file->id) . '" class="btn btn-outline-info btn-sm"><i class="fa fa-info"></i></a> &nbsp';
+                if (auth()->user()->role == 'admin'){
+                    $result .= '<a href="' . route('logActivity', $file->id) . '" class="btn btn-outline-info btn-sm"><i class="fa fa-info"></i></a> &nbsp';
+                }
                 $result .= '<a target="_blank" href="'.asset(Storage::url($file->file_path)).'" class="btn btn-outline-secondary btn-sm"><i class="fa fa-file"></i></a> &nbsp';
                 return $result;
             })
@@ -50,8 +54,15 @@ class TrainingController extends Controller
     public function update(Request $request, $id){
         $validator = Validator::make($request->all(), [
             'jenis_doc' => 'required',
-            'file' => 'required|mimes:csv,txt,xlx,xls,pdf|max:2048'
+            'file' => 'mimes:csv,txt,xlx,xls,pdf|max:2048',
+            'deskripsi' => 'required'
         ]);
+
+        if($validator->fails()){
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }
 
         $file = File::findOrFail($id);
         if($request->hasFile('file')){
@@ -66,8 +77,20 @@ class TrainingController extends Controller
         $file->deskripsi = $request->deskripsi;
 
         $file->save();
-        Alert::success('Messsage', 'Optional Title');
-        return back()->with('status', 'File has been Update');
+
+        $activity = new Activity();
+        $activity->title = $request->title;
+        $activity->user_id = Auth::user()->id;
+        $activity->name = Auth::user()->name;
+        $activity->file_id = $file->id;
+        $activity->save();
+
+        $activityuser = new ActivityUser();
+        $activityuser->user_id = Auth::user()->id;
+        $activityuser->activity = 'User telah melakukan Update Data Training';;
+        $activityuser->save();
+
+        return redirect('training');
 
     }
 
@@ -105,6 +128,9 @@ class TrainingController extends Controller
     public function getTrash(){
         $file = File::with('user')->onlyTrashed();
         return DataTables::of($file)
+            ->editColumn('created_at', function ($documents){
+                return Carbon::parse($documents->created_at,'Asia/Jakarta')->format('d-m-Y');
+            })
             ->addColumn('action', function ($file) {
                 $result = '';
                 $result .= '<a href="' . route('training.restore', $file->id) . '" class="btn btn-success btn-sm"><i class="fa fa-trash-restore"></i></a>';

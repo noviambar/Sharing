@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Sharing Knowledge| Blank Page</title>
+    <title>Sharing Knowledge</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -143,7 +143,11 @@
         <section class="content">
             <div class="container mt-5">
                 <div class="pull-right">
-                    <a href="{{route('meeting.delete', $file->id)}}" class="btn btn-danger"><i class="fa fa-plus"></i> Delete</a>
+                    <a href="{{route('meeting.delete', $file->id)}}" class="btn btn-outline-danger"><i class="fa fa-plus"></i> Delete</a>
+                    @if(auth()->user()->role == 'admin')
+                        <a href="{{route('logActivity', $file->id)}}" class="btn btn-outline-info"><i class="fa fa-info"> Detail</i></a>
+                    @endif
+                    <a href="{{route('meeting.edit', $file->id)}}" class="btn btn-outline-primary"><i class="fa fa-edit"> Edit</i></a>
                 </div>
                 <form action="#" enctype="multipart/form-data">
                     <h3 class="text-center mb-5"></h3>

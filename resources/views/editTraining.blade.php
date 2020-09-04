@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Sharing Knowledge| Blank Page</title>
+    <title>Sharing Knowledge</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -146,7 +146,7 @@
 
         <section class="content">
             <div class="container mt-5">
-                <form action="{{route('meeting.update', $file->id)}}" method="post" enctype="multipart/form-data">
+                <form action="{{route('training.update', $file->id)}}" method="post" enctype="multipart/form-data">
                     <h3 class="text-center mb-5">Silakan Upload Dokumen Anda</h3>
                     @csrf
                     @if ($message = Session::get('success'))
@@ -184,14 +184,15 @@
                         <label>Content</label>
                         <textarea name="deskripsi" rows="5" cols="40" class="form-control deskripsi">{{old('deskripsi') ?? $file->deskripsi }}</textarea>
                     </div>
-                    <div>
+                    <div class="form-group">
+                        <input type="text" name="namaFile" class="form-control"
+                               value="{{old('namaFile') ?? $file->namaFile }}" readonly>
                         <div class="custom-file">
-                            <input type="file" name="file" class="custom-file-input" id="chooseFile">
-                            <label class="custom-file-label" for="chooseFile">Select file</label>
+                            <input type="file" name="file" class="form-control-sidebar">
                         </div>
                     </div>
                     <button type="submit" name="submit" class="btn btn-primary btn-block mt-4">
-                        Upload Content
+                        Update Content
                     </button>
                 </form>
             </div>

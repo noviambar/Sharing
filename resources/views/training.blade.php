@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Training Report | Data Training</title>
+    <title>Sharing Knowledge</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -141,8 +141,10 @@
                             <div class="card-header">
                                 <!-- /.card-header -->
                                 <div class="pull-right">
-                                    <a href="{{route('uploadTraining')}}" class="btn btn-dark"><i class="fa fa-plus"></i> Add</a>
-                                    <a href="{{route('trashtraining')}}" class="btn btn-dark"><i class="fa fa-plus"></i> Trash Data Training</a>
+                                    <a href="{{route('uploadTraining')}}" class="btn btn-success"><i class="fa fa-plus"></i> Add</a>
+                                    @if(auth()->user()->role == 'admin')
+                                        <a href="{{route('trashtraining')}}" class="btn btn-warning"><i class="fa fa-trash-alt"></i> Trash Data Training</a>
+                                    @endif
                                 </div>
                                 <div class="card-body">
                                     <table id="training" class="table table-bordered table-striped">
