@@ -143,6 +143,7 @@
                                 <!-- /.card-header -->
                                 <div class="pull-right">
                                     <a href="{{route('uploadContent')}}" class="btn btn-success"><i class="fa fa-plus"></i> Add</a>
+                                    <a href="{{route('trashmeeting')}}" class="btn btn-warning"><i class="fa fa-trash-alt"></i> Trash Data Meeting</a>
                                 </div>
                                 <div class="card-body">
                                     <table id="meeting" class="table table-bordered table-striped">

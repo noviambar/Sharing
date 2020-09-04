@@ -3,21 +3,24 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Sharing Knowledge| Blank Page</title>
+    <title>Meeting Report</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="themes/adminlte/plugins/fontawesome-free/css/all.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- overlayScrollbars -->
-    <link rel="stylesheet" href="/css/adminlte.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.css"/>
+    <!-- Theme style -->
+    <link rel="stylesheet" href="themes/adminlte/dist/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <!-- SweetAlert -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
 </head>
 <body class="hold-transition sidebar-mini">
-<!-- Site wrapper -->
 <div class="wrapper">
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -27,16 +30,7 @@
                 <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="{{ route('home') }}" class="nav-link">Home</a>
-            </li>
-        </ul>
-
-        <!-- Right navbar links -->
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-                    <i class="fas fa-th-large"></i>
-                </a>
+                <a href="{{route('home')}}" class="nav-link">Home</a>
             </li>
         </ul>
     </nav>
@@ -54,7 +48,9 @@
         <div class="sidebar">
             <!-- Sidebar user (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                <span class="brand-text font-weight-bolder"><a href="#" class="d-block">{{auth()->user()->name}}</a></span>
+                <div class="info">
+                    <a>{{Auth::User()->name}}</a>
+                </div>
             </div>
 
             <!-- Sidebar Menu -->
@@ -125,95 +121,95 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Update Content</h1>
+                        <h1>Trash Data Training</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
-                            <li class="breadcrumb-item "><a href="{{route('meeting')}}">Data Meeting</a></li>
-                            <li class="breadcrumb-item active"><Update></Update> Content</li>
+                            <li class="breadcrumb-item"><a href="{{route('training')}}">Data Training</a></li>
+                            <li class="breadcrumb-item active">Trash Data Training</li>
                         </ol>
                     </div>
                 </div>
             </div><!-- /.container-fluid -->
         </section>
 
+        <!-- Main content -->
         <section class="content">
-            <div class="container mt-5">
-                <form action="{{route('meeting.update', $file->id)}}" method="post" enctype="multipart/form-data">
-                    <h3 class="text-center mb-5">Silakan Update Dokumen Anda</h3>
-                    @csrf
-                    @if ($message = Session::get('success'))
-                        <div class="alert alert-success">
-                            <strong>{{ $message }}</strong>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <!-- /.card-header -->
+                                <div class="pull-right">
+                                    <a href="{{route('training')}}" class="btn btn-success"><i class="fa fa-plus"></i> Data Training</a>
+                                </div>
+                                <div class="card-body">
+                                    <table id="trashtraining" class="table table-bordered table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th>Nama</th>
+                                            <th>Title</th>
+                                            <th>Jenis Dokumen</th>
+                                            <th>Created_at</th>
+                                            <th>Action</th>
+                                        </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
                         </div>
-                    @endif
-
-                    @if (count($errors) > 0)
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-
-                    <div class="form-group">
-                        <label>Nama</label>
-                        <input type="text" name="user_id" class="form-control" value="{{Auth::User()->name}}" readonly>
+                        <!-- /.col -->
                     </div>
-
-                    <div class="form-group">
-                        <label>Jenis Dokumen</label>
-                        <input type="text" name="jenis_doc" class="form-control"
-                               value="{{old('jenis_doc') ?? $file->jenis_doc }}" readonly>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Title</label>
-                        <input type="text" name="title" class="form-control" value="{{old('title') ?? $file->title}}" readonly>
-                    </div>
-                    <div class="form-group">
-                        <label>Content</label>
-                        <textarea name="deskripsi" rows="5" cols="40" class="form-control deskripsi">{{old('deskripsi') ?? $file->deskripsi }}</textarea>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" name="namaFile" class="form-control"
-                               value="{{old('namaFile') ?? $file->namaFile }}" readonly>
-                        <div class="custom-file">
-                            <input type="file" name="file" class="form-control-sidebar">
-                        </div>
-                    </div>
-                    <button type="submit" name="submit" class="btn btn-primary btn-block mt-4">
-                        Upload Content
-                    </button>
-                </form>
+                    <!-- /.row -->
+                </div>
+                <!-- /.container-fluid -->
             </div>
         </section>
+        <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
 
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="/plugins/jquery/jquery.min.js"></script>
+<script src="themes/adminlte/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="themes/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- DataTables -->
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.js"></script>
 <!-- AdminLTE App -->
-<script src="/js/adminlte.min.js"></script>
+<script src="themes/adminlte/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="/js/demo.js"></script>
-<!-- TinyMCE -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.4.2/tinymce.min.js"></script>
-<script type= "text/javascript">tinymce.init({
-        selector: 'textarea',
-        min_height: 400,
-        element_format: 'html',
-        plugins : "pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,wordcount,advlist,autosave",
+<script src="themes/adminlte/dist/js/demo.js"></script>
+<!-- Sweet Alert -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+<!-- page script -->
+<script>
+    $().ready(function () {
+        $("#trashtraining").DataTable({
+            "processing": true,
+            "serverSide": true,
+            "ajax": "{{route('training.getTrash')}}",
+            "columns": [
+                {data: 'user.name', orderable: false,},
+                {data: 'title', orderable: false},
+                {data: 'jenis_doc', orderable: false, searchable: false},
+                {data: 'created_at', orderable: false},
+                {data: "action", orderable: false, searchable: false, width: '20%', classname: 'center action'}
+
+            ]
+        });
     });
 </script>
-
 </body>
 </html>

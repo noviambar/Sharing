@@ -27,8 +27,10 @@ Route::get('/meeting/getMeeting', 'MeetingController@getMeeting')->name('meeting
 Route::get('/meeting/show/{id}', 'MeetingController@show')->name('meeting.show');
 Route::get('/meeting/edit/{id}', 'MeetingController@edit')->name('meeting.edit');
 Route::post('/meeting/edit/{id}', 'MeetingController@update')->name('meeting.update');
+Route::get('/trashmeeting','MeetingController@trashmeeting')->name('trashmeeting');
+Route::get('/meeting/getTrash','MeetingController@getTrash')->name('meeting.getTrash');
 Route::get('/meeting/delete/{id}', 'MeetingController@delete')->name('meeting.delete');
-Route::delete('/meeting/delete/{id}', 'MeetingController@destroy')->name('meeting.destroy');
+Route::get('/meeting/restore/{id}', 'MeetingController@restore')->name('meeting.restore');
 
 Route::get('/training','TrainingController@training')->name('training');
 Route::get('/training/getTraining','TrainingController@getTraining')->name('training.getTraining');
@@ -36,8 +38,11 @@ Route::get('/training/show/{id}', 'TrainingController@show')->name('training.sho
 Route::get('/training/show/download/{id}', 'TrainingController@download')->name('training.show.download');
 Route::get('/training/edit/{id}', 'TrainingController@edit')->name('training.edit');
 Route::post('/training/edit/{id}', 'TrainingController@update')->name('training.update');
+Route::get('/trashtraining','TrainingController@trashtraining')->name('trashtraining');
+Route::get('/training/getTrash','TrainingController@getTrash')->name('training.getTrash');
 Route::get('/training/delete/{id}', 'TrainingController@delete')->name('training.delete');
-Route::delete('/training/delete/{id}', 'TrainingController@destroy')->name('training.destroy');
+Route::get('/training/restore/{id}', 'TrainingController@restore')->name('training.restore');
+
 
 
 Route::get('/content','ContentController@createForm')->name('content');
@@ -65,6 +70,7 @@ Route::post('/home/edit/{id}', 'HomeController@update')->name('home.update');
 
 Route::get('/logActivity/getActivity/{id}', 'MeetingController@getActivity')->name('logActivity.getActivity');
 Route::get('/logActivity/{id}', 'MeetingController@logActivity')->name('logActivity');
+Route::get('/logActivity/delete/{id}', 'MeetingController@deleteActivity')->name('deleteActivity');
 
 Route::get('/profile/getActivityUser/{id}', 'ProfileController@getActivity')->name('profile.getActivityUser');
 Route::get('/profile/logActivity/{id}', 'ProfileController@logActivity')->name('profile.logActivity');

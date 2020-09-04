@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\ActivityUser;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use App\file;
+use App\File;
 use DataTables;
 use App\Activity;
 use Illuminate\Support\Facades\Auth;
@@ -88,24 +89,10 @@ class MeetingController extends Controller
 
         $activityuser = new ActivityUser();
         $activityuser->user_id = Auth::user()->id;
-        $activityuser->activity = 'File telah di update';
+        $activityuser->activity = 'File Training telah dibuat';;
         $activityuser->save();
         return redirect('meeting');
 
-    }
-
-    public function delete($id)
-    {
-        DB::table('files')->where('id', $id)->delete();
-
-        return redirect('meeting');
-    }
-
-    public function destroy($id)
-    {
-        $file = File::findOrFail($id);
-        $file->delete();
-        return redirect('meeting')->with('success', 'File has been Delete');
     }
 
     public function show($id)
@@ -130,7 +117,42 @@ class MeetingController extends Controller
             ->editColumn('created_at', function ($documents){
                 return Carbon::parse($documents->created_at,'Asia/Jakarta')->format('d-m-Y');
             })
+            ->addColumn('action', function($document){
+                $result = '';
+                $result .= '<a href="' . route('deleteActivity', $document->id) . '" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></a> &nbsp';
+                return $result;
+            })
             ->make(true);
+    }
+
+    public function getTrash(){
+        $file = File::with('user')->onlyTrashed();
+        return DataTables::of($file)
+            ->addColumn('action', function ($file) {
+                $result = '';
+                $result .= '<a href="' . route('meeting.restore', $file->id) . '" class="btn btn-outline-success btn-sm"><i class="fa fa-trash-restore"></i></a> &nbsp';
+                return $result;
+            })
+            ->make(true);
+    }
+
+    public function delete($id)
+    {
+        $file = File::find($id);
+        $file->delete();
+
+        return redirect('meeting');
+    }
+
+    public function trashmeeting(){
+        $file = File::with('user')->onlyTrashed();
+        return view('trashMeeting',['files' => $file]);
+    }
+
+    public function restore($id){
+        $file = File::onlyTrashed()->where('id',$id);
+        $file->restore();
+        return redirect('meeting');
     }
 
 }

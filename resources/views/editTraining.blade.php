@@ -167,21 +167,18 @@
 
                     <div class="form-group">
                         <label>Nama</label>
-                        <input type="text" name="user_id" class="form-control" value="{{Auth::User()->name}}">
+                        <input type="text" name="user_id" class="form-control" value="{{Auth::User()->name}}" readonly>
                     </div>
 
                     <div class="form-group">
                         <label>Jenis Dokumen</label>
-                        <br>
-                        <select name="jenis_doc">
-                            <option value="0">Jenis Dokumen</option>
-                            <option value="Meeting">Meeting</option>
-                            <option value="Training">Training</option>
-                        </select>
+                        <input type="text" name="jenis_doc" class="form-control"
+                               value="{{old('jenis_doc') ?? $file->jenis_doc }}" readonly>
                     </div>
+
                     <div class="form-group">
                         <label>Title</label>
-                        <input type="text" name="title" class="form-control" value="{{old('title') ?? $file->title}}">
+                        <input type="text" name="title" class="form-control" value="{{old('title') ?? $file->title}}" readonly>
                     </div>
                     <div class="form-group">
                         <label>Content</label>

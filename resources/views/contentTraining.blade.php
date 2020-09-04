@@ -139,7 +139,7 @@
 
         <section class="content">
             <div class="container mt-5">
-                <form action="{{route('uploadContent')}}" method="post" enctype="multipart/form-data">
+                <form action="{{route('uploadTraining')}}" method="post" enctype="multipart/form-data">
                     <h3 class="text-center mb-5">Silakan Upload Dokumen Anda</h3>
                     @csrf
                     @if ($message = Session::get('success'))

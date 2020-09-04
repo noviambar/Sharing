@@ -8,13 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="themes/adminlte/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="/themes/adminlte/plugins/fontawesome-free/css/all.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- DataTables -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.css"/>
     <!-- Theme style -->
-    <link rel="stylesheet" href="themes/adminlte/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="/themes/adminlte/dist/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
@@ -142,6 +142,7 @@
                                 <!-- /.card-header -->
                                 <div class="pull-right">
                                     <a href="{{route('uploadTraining')}}" class="btn btn-dark"><i class="fa fa-plus"></i> Add</a>
+                                    <a href="{{route('trashtraining')}}" class="btn btn-dark"><i class="fa fa-plus"></i> Trash Data Training</a>
                                 </div>
                                 <div class="card-body">
                                     <table id="training" class="table table-bordered table-striped">
@@ -180,15 +181,15 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="themes/adminlte/plugins/jquery/jquery.min.js"></script>
+<script src="/themes/adminlte/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="themes/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/themes/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- DataTables -->
 <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.js"></script>
 <!-- AdminLTE App -->
-<script src="themes/adminlte/dist/js/adminlte.min.js"></script>
+<script src="/themes/adminlte/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="themes/adminlte/dist/js/demo.js"></script>
+<script src="/themes/adminlte/dist/js/demo.js"></script>
 <!-- page script -->
 <script>
     $().ready(function () {

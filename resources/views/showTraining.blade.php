@@ -46,7 +46,8 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
         <a href="{{ route('home') }}" class="brand-link">
-            <span class="brand-text align-center">Sharing Knowledge</span>
+            <span class="brand-text font-weight-light">Sharing Knowledge</span>
+
         </a>
 
         <!-- Sidebar -->
@@ -54,7 +55,7 @@
             <!-- Sidebar user (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="info">
-                    <a href="#" class="text-capitalize font-weight-bolder"></a>
+                    <a href="#" class="d-block">{{auth()->user()->name}}</a>
                 </div>
             </div>
 
@@ -87,8 +88,7 @@
                             </li>
                         </ul>
                     </li>
-
-
+                    @if(auth()->user()->role == 'admin')
                         <li class="nav-item">
                             <a href="{{route('register')}}" class="nav-link">
                                 <i class="nav-icon fas fa-user"></i>
@@ -102,7 +102,7 @@
                                 <p>Data Karyawan</p>
                             </a>
                         </li>
-
+                    @endif
                     <li class="nav-item">
                         <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault();
               document.getElementById('logout-form').submit();">
@@ -122,7 +122,72 @@
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        @yield('content')
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>View</h1>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
+                            <li class="breadcrumb-item">Document</li>
+                            <li class="breadcrumb-item active">View</li>
+                        </ol>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+
+        <section class="content">
+            <div class="container mt-5">
+                <div class="pull-right">
+                    <a href="{{route('training.delete', $file->id)}}" class="btn btn-danger"><i class="fa fa-plus"></i> Delete</a>
+                </div>
+                <form action="#" enctype="multipart/form-data">
+                    <h3 class="text-center mb-5"></h3>
+                    @csrf
+                    @if ($message = Session::get('success'))
+                        <div class="alert alert-success">
+                            <strong>{{ $message }}</strong>
+                        </div>
+                    @endif
+
+                    @if (count($errors) > 0)
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
+                    <div class="form-group">
+                        <label>Jenis Dokumen</label>
+                        <input type="text" name="jenis_doc" class="form-control"
+                               value="{{old('jenis_doc') ?? $file->jenis_doc }}" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" name="title" class="form-control"
+                               value="{{old('title') ?? $file->title }}" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Content</label>
+                        <textarea name="deskripsi" rows="5" cols="40" class="form-control deskripsi"
+                                  readonly>{{old('deskripsi') ?? $file->deskripsi }}</textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>File</label>
+                        <input type="text" name="namaFile" class="form-control"
+                               value="{{old('namaFile') ?? $file->namaFile }}" readonly>
+                    </div>
+                </form>
+            </div>
+        </section>
     </div>
     <!-- /.content-wrapper -->
 
@@ -137,5 +202,16 @@
 <script src="/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/js/demo.js"></script>
+<!-- TinyMCE -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.4.2/tinymce.min.js"></script>
+<script type= "text/javascript">tinymce.init({
+        selector: 'textarea',
+        readonly: 1,
+        min_height: 400,
+        element_format: 'html',
+        plugins : "pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,wordcount,advlist,autosave",
+    });
+</script>
+
 </body>
 </html>

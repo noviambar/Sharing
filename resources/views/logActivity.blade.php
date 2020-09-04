@@ -149,6 +149,7 @@
                                                 <th>Nama</th>
                                                 <th>Title</th>
                                                 <th>Created_at</th>
+                                                <th>Action</th>
                                             </tr>
                                             </thead>
                                         </table>
@@ -199,6 +200,7 @@
                 {data: 'name', orderable: false},
                 {data: 'title', orderable: false},
                 {data: 'created_at', orderable: false},
+                {data: 'action', orderable: false},
 
             ]
         });

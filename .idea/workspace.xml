@@ -19,7 +19,24 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75e17794-c326-487c-bd0e-6776f10f7a7d" name="Default Changelist" comment="first commit" />
+    <list default="true" id="75e17794-c326-487c-bd0e-6776f10f7a7d" name="Default Changelist" comment="first commit">
+      <change afterPath="$PROJECT_DIR$/resources/views/showTraining.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/trashMeeting.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/trashTraining.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/File.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/File.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MeetingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MeetingController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TrainingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TrainingController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_10_075502_create_files_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_10_075502_create_files_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/contentTraining.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/contentTraining.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/editTraining.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/editTraining.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/logActivity.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/logActivity.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/meeting.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/meeting.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/training.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/training.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -156,7 +173,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Helpers" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -167,8 +184,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\belajar_laravel\app\Helpers" />
       <recent name="C:\xampp\htdocs\belajar_laravel\resources\views" />
+      <recent name="C:\xampp\htdocs\belajar_laravel\app\Helpers" />
     </key>
   </component>
   <component name="RunManager">
@@ -202,7 +219,8 @@
       <workItem from="1598844752200" duration="16337000" />
       <workItem from="1598931745669" duration="19858000" />
       <workItem from="1599019304544" duration="20045000" />
-      <workItem from="1599102798918" duration="22134000" />
+      <workItem from="1599102798918" duration="24089000" />
+      <workItem from="1599189466561" duration="9540000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1598946780549</created>
@@ -218,7 +236,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599131560487</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="first commit">
+      <created>1599131927223</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1599131927224</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -249,29 +274,29 @@
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="371" y="92" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.689@0.0.1280.689" timestamp="1598241344629" />
-    <state x="371" y="100" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1599129871982">
+    <state x="371" y="100" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1599191349544">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="371" y="100" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.689@0.0.1280.689" timestamp="1599129871982" />
+    <state x="371" y="100" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.689@0.0.1280.689" timestamp="1599191349544" />
     <state x="796" y="276" key="NewPhpFileDialog" timestamp="1599124374037">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="796" y="276" key="NewPhpFileDialog/0.0.1280.689@0.0.1280.689" timestamp="1599124374037" />
-    <state x="233" y="78" key="Vcs.Push.Dialog.v2" timestamp="1599131572844">
+    <state x="233" y="78" key="Vcs.Push.Dialog.v2" timestamp="1599131930911">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="233" y="78" key="Vcs.Push.Dialog.v2/0.0.1280.689@0.0.1280.689" timestamp="1599131572844" />
-    <state x="458" y="259" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1599131340795">
+    <state x="233" y="78" key="Vcs.Push.Dialog.v2/0.0.1280.689@0.0.1280.689" timestamp="1599131930911" />
+    <state x="458" y="259" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1599131873579">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="458" y="259" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.689@0.0.1280.689" timestamp="1599131340795" />
+    <state x="458" y="259" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.689@0.0.1280.689" timestamp="1599131873579" />
     <state x="297" y="153" key="run.anything.popup" timestamp="1598506688923">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="297" y="153" key="run.anything.popup/0.0.1280.689@0.0.1280.689" timestamp="1598506688923" />
-    <state x="303" y="10" width="672" height="678" key="search.everywhere.popup" timestamp="1599040069444">
+    <state x="303" y="10" width="672" height="678" key="search.everywhere.popup" timestamp="1599132304664">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="303" y="10" width="672" height="678" key="search.everywhere.popup/0.0.1280.689@0.0.1280.689" timestamp="1599040069444" />
+    <state x="303" y="10" width="672" height="678" key="search.everywhere.popup/0.0.1280.689@0.0.1280.689" timestamp="1599132304664" />
   </component>
 </project>

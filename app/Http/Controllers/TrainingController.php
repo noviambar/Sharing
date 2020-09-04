@@ -25,6 +25,9 @@ class TrainingController extends Controller
     public function getTraining(){
         $file = File::with('user')->select('id','user_id', 'title', 'jenis_doc', 'file_path', 'created_at')->where('jenis_doc','training');
         return DataTables::of($file)
+            ->editColumn('created_at', function ($file){
+                return Carbon::parse($file->created_at,'Asia/Jakarta')->format('d-m-Y');
+            })
             ->addColumn('action', function($file) {
                 $result = '';
                 $result .= '<a href="'.route('training.show', $file->id).'" class="btn btn-outline-success btn-sm"><i class="fa fa-search"></i></a> &nbsp';
@@ -38,7 +41,7 @@ class TrainingController extends Controller
     }
 
     public function edit($id){
-        $file = file::findOrFail($id);
+        $file = File::findOrFail($id);
         return view('editTraining', compact('file'), [
             'file' => $file
         ]);
@@ -50,7 +53,7 @@ class TrainingController extends Controller
             'file' => 'required|mimes:csv,txt,xlx,xls,pdf|max:2048'
         ]);
 
-        $file = file::findOrFail($id);
+        $file = File::findOrFail($id);
         if($request->hasFile('file')){
             $fileName = time() . '_' . $request->file->getClientOriginalName();
             $filePath = $request->file('file')->storeAs('uploads', $fileName, 'public');
@@ -68,27 +71,16 @@ class TrainingController extends Controller
 
     }
 
-    public function delete($id){
-        DB::table('files')->where('id', $id)->delete();
-        return back();
-    }
-
-    public function destroy($id){
-        $file = file::findOrFail($id);
-        $file->delete();
-        return redirect('training')->with('status', 'File has been Delete');
-    }
-
     public function download($id)
     {
-        $file = file::findOrFail($id);
+        $file = File::findOrFail($id);
         return Storage::disk('public')->download($file->file_path);
     }
 
     public function show($id)
     {
-        $file = file::findOrFail($id);
-        return view('show', compact('file'), [
+        $file = File::findOrFail($id);
+        return view('showTraining', compact('file'), [
             'file' => $file
         ]);
     }
@@ -108,5 +100,35 @@ class TrainingController extends Controller
                 return Carbon::parse($documents->created_at,'Asia/Jakarta')->format('d-m-Y');
             })
             ->make(true);
+    }
+
+    public function getTrash(){
+        $file = File::with('user')->onlyTrashed();
+        return DataTables::of($file)
+            ->addColumn('action', function ($file) {
+                $result = '';
+                $result .= '<a href="' . route('training.restore', $file->id) . '" class="btn btn-success btn-sm"><i class="fa fa-trash-restore"></i></a>';
+                return $result;
+            })
+            ->make(true);
+    }
+
+    public function delete($id)
+    {
+        $file = File::find($id);
+        $file->delete();
+
+        return view('training');
+    }
+
+    public function trashtraining(){
+        $file = File::onlyTrashed()->get();
+        return view('trashTraining',['files' => $file]);
+    }
+
+    public function restore($id){
+        $file = File::onlyTrashed()->where('id',$id);
+        $file->restore();
+        return view('training');
     }
 }
