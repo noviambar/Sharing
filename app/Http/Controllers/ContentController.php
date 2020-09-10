@@ -25,9 +25,9 @@ class ContentController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'jenis_doc' => 'required',
-            'title' => 'required',
+            'title' => 'required|unique:files,title',
             'deskripsi' => 'required',
-            'file' => 'mimes:csv,txt,xlx,xls,pdf,png,jpg|max:2048'
+            'file' => 'mimes:csv,txt,xlx,xls,pdf,png,jpg,docx|max:2048'
         ]);
 
         if($validator->fails()){

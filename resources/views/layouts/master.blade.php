@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Sharing Knowledge| Blank Page</title>
+    <title>Sharing Knowledge</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -46,15 +46,15 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
         <a href="{{ route('home') }}" class="brand-link">
-            <span class="brand-text align-center">Sharing Knowledge</span>
+            <span class="text-lg">Sharing Knowledge</span>
         </a>
 
         <!-- Sidebar -->
-        <div class="sidebar">
+        <div class="sidebar-dark">
             <!-- Sidebar user (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="info">
-                    <a href="#" class="text-capitalize font-weight-bolder">{{auth()->user()->name}}</a>
+                    <a href="#" class="text-lg text-capitalize">{{auth()->user()->name}}</a>
                 </div>
             </div>
 
@@ -130,12 +130,23 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="/plugins/jquery/jquery.min.js"></script>
+<script src="/themes/adminlte/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/themes/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
-<script src="/js/adminlte.min.js"></script>
+<script src="/themes/adminlte/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="/js/demo.js"></script>
+<script src="/themes/adminlte/dist/js/demo.js"></script>
+<!-- TinyMCE -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.4.2/tinymce.min.js"></script>
+<script type= "text/javascript">tinymce.init({
+        selector: 'textarea',
+        readonly: 1,
+        min_height: 400,
+        element_format: 'html',
+        plugins : "pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,wordcount,advlist,autosave",
+    });
+</script>
+<!-- page script -->
 </body>
 </html>

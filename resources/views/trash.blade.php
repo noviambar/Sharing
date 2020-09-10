@@ -51,16 +51,16 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
         <a href="{{ route('home') }}" class="brand-link">
-            <span class="brand-text font-weight-light">Sharing Knowledge</span>
+            <span class="text-lg">Sharing Knowledge</span>
 
         </a>
 
         <!-- Sidebar -->
-        <div class="sidebar">
+        <div class="sidebar-dark">
             <!-- Sidebar user (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="info">
-                    <a href="#" class="d-block">{{Auth::User()->name}}</a>
+                    <a href="#" class="text-lg text-capitalize">{{auth()->user()->name}}</a>
                 </div>
             </div>
 
@@ -138,7 +138,7 @@
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
                             <li class="breadcrumb-item"><a href="{{route('profile')}}">Data Karyawan</a></li>
-                            <li class="breadcrumb-item active">Trash</li>
+                            <li class="breadcrumb-item active">Recycle Bin</li>
                         </ol>
                     </div>
                 </div>
@@ -153,8 +153,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <!-- /.card-header -->
-                                <a href="{{route('profile')}}">Data Karyawan</a>|
-                                <a href="{{route('trash')}}">Recycle Bin</a>
+                                <a href="{{route('profile')}}">Data Karyawan</a>
                                 <div class="card-body">
                                     <table id="trash" class="table table-bordered table-striped">
                                         <thead>

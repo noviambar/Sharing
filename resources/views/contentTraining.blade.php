@@ -167,7 +167,7 @@
                         <label>Jenis Dokumen</label>
                         <br>
                         <select name="jenis_doc">
-                            <option value="0">Jenis Dokumen</option>
+                            <option value="">Jenis Dokumen</option>
                             <option value="Meeting">Meeting</option>
                             <option value="Training">Training</option>
                         </select>

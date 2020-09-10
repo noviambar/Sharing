@@ -55,7 +55,8 @@ class TrainingController extends Controller
         $validator = Validator::make($request->all(), [
             'jenis_doc' => 'required',
             'file' => 'mimes:csv,txt,xlx,xls,pdf|max:2048',
-            'deskripsi' => 'required'
+            'deskripsi' => 'required',
+            'title' => 'required'
         ]);
 
         if($validator->fails()){
@@ -69,8 +70,9 @@ class TrainingController extends Controller
             $fileName = time() . '_' . $request->file->getClientOriginalName();
             $filePath = $request->file('file')->storeAs('uploads', $fileName, 'public');
 
-            $file->name = time() . '_' . $request->file->getClientOriginalName();
+//            $file->name = time() . '_' . $request->file->getClientOriginalName();
             $file->file_path = $filePath;
+            $file->namaFile = $fileName;
         }
         $file->jenis_doc = $request->jenis_doc;
         $file->title = $request->title;

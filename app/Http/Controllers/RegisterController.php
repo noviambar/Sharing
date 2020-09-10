@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
 {
@@ -16,6 +17,21 @@ class RegisterController extends Controller
     }
 
     public function postRegister(Request $request){
+
+        $validator = Validator::make($request->all(), [
+            'role' => 'required',
+            'email' => 'unique:users,email',
+            'name' => 'required',
+            'password' => 'required|confirmed|min:8',
+
+
+        ]);
+
+        if($validator->fails()){
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }
 
         $data = new User();
         $data->name = $request->input('name');

@@ -46,15 +46,16 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
         <a href="{{ route('home') }}" class="brand-link">
-            <span class="brand-text font-weight-light">Sharing Knowledge</span>
-
+            <span class="text-lg">Sharing Knowledge</span>
         </a>
 
         <!-- Sidebar -->
-        <div class="sidebar">
+        <div class="sidebar-dark">
             <!-- Sidebar user (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                <span class="brand-text font-weight-bolder"><a href="#" class="d-block">{{auth()->user()->name}}</a></span>
+                <div class="info">
+                    <a href="#" class="text-lg text-capitalize">{{auth()->user()->name}}</a>
+                </div>
             </div>
 
             <!-- Sidebar Menu -->
@@ -86,6 +87,7 @@
                             </li>
                         </ul>
                     </li>
+
                     @if(auth()->user()->role == 'admin')
                         <li class="nav-item">
                             <a href="{{route('register')}}" class="nav-link">
@@ -167,7 +169,7 @@
                         <label>Jenis Dokumen</label>
                         <br>
                         <select name="jenis_doc">
-                            <option value="0">Jenis Dokumen</option>
+                            <option value="">Jenis Dokumen</option>
                             <option value="Meeting">Meeting</option>
                             <option value="Training">Training</option>
                         </select>
@@ -183,7 +185,7 @@
                     <div>
                         <div class="custom-file">
                             <input type="file" name="file" class="form-control-sidebar" id="chooseFile">
-{{--                            <label class="custom-file-label" for="chooseFile"></label>--}}
+                            {{--                            <label class="custom-file-label" for="chooseFile"></label>--}}
                         </div>
                     </div>
                     <button type="submit" name="submit" class="btn btn-primary btn-block mt-4">
@@ -195,26 +197,31 @@
     </div>
     <!-- /.content-wrapper -->
 
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="/plugins/jquery/jquery.min.js"></script>
+<script src="/themes/adminlte/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/themes/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
-<script src="/js/adminlte.min.js"></script>
+<script src="/themes/adminlte/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="/js/demo.js"></script>
+<script src="/themes/adminlte/dist/js/demo.js"></script>
 <!-- TinyMCE -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.4.2/tinymce.min.js"></script>
-<script type= "text/javascript">tinymce.init({
+<script type="text/javascript">tinymce.init({
         selector: 'textarea',
         min_height: 400,
         element_format: 'html',
-        plugins : "pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,wordcount,advlist,autosave",
+        plugins: "pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,wordcount,advlist,autosave",
     });
 </script>
-
+<!-- page script -->
 </body>
 </html>

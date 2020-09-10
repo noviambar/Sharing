@@ -57,8 +57,9 @@ class MeetingController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'jenis_doc' => 'required',
-            'file' => 'mimes:csv,txt,xlx,xls,pdf|max:2048',
-            'deskripsi' => 'required'
+            'file' => 'mimes:csv,txt,xlx,xls,pdf,docx,png,jpg|max:2048',
+            'deskripsi' => 'required',
+            'title' => 'required'
         ]);
 
         if($validator->fails()){

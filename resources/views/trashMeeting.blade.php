@@ -40,16 +40,16 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
         <a href="{{ route('home') }}" class="brand-link">
-            <span class="brand-text font-weight-light">Sharing Knowledge</span>
+            <span class="text-lg">Sharing Knowledge</span>
 
         </a>
 
         <!-- Sidebar -->
-        <div class="sidebar">
+        <div class="sidebar-dark">
             <!-- Sidebar user (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="info">
-                    <a>{{Auth::User()->name}}</a>
+                    <a href="#" class="text-lg text-capitalize">{{auth()->user()->name}}</a>
                 </div>
             </div>
 
@@ -142,7 +142,7 @@
                             <div class="card-header">
                                 <!-- /.card-header -->
                                 <div class="pull-right">
-                                    <a href="{{route('meeting')}}" class="btn btn-success"><i class="fa fa-plus"></i> Data Meeting</a>
+                                    <a href="{{route('meeting')}}" class="btn btn-success"><i class="fa fa-file"></i> Data Meeting</a>
                                 </div>
                                 <div class="card-body">
                                     <table id="trashmeeting" class="table table-bordered table-striped">

@@ -40,16 +40,16 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
         <a href="{{ route('home') }}" class="brand-link">
-            <span class="brand-text font-weight-light">Sharing Knowledge</span>
+            <span class="text-lg">Sharing Knowledge</span>
 
         </a>
 
         <!-- Sidebar -->
-        <div class="sidebar">
+        <div class="sidebar-dark">
             <!-- Sidebar user (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="info">
-                    <a>{{Auth::User()->name}}</a>
+                    <a href="#" class="text-lg text-capitalize">{{auth()->user()->name}}</a>
                 </div>
             </div>
 
@@ -126,7 +126,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
-                            <li class="breadcrumb-item"><a href="{{route('meeting')}}">Data Meeting</a></li>
+                            <li class="breadcrumb-item"><a href="#">Document</a></li>
                             <li class="breadcrumb-item active">Log Activity</li>
                         </ol>
                     </div>
@@ -141,7 +141,8 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <!-- /.card-header -->
+                                    <a href="{{route('meeting')}}">Data Meeting </a> |
+                                    <a href="{{route('training')}}"> Data Training</a>
                                     <div class="card-body">
                                         <table id="activity" class="table table-bordered table-striped">
                                             <thead>
@@ -187,8 +188,6 @@
 <script src="/themes/adminlte/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/themes/adminlte/dist/js/demo.js"></script>
-<!-- Sweet Alert -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
 <!-- page script -->
 <script>
     $().ready(function () {

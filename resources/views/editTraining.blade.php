@@ -46,15 +46,16 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
         <a href="{{ route('home') }}" class="brand-link">
-            <span class="brand-text font-weight-light">Sharing Knowledge</span>
-
+            <span class="text-lg">Sharing Knowledge</span>
         </a>
 
         <!-- Sidebar -->
-        <div class="sidebar">
+        <div class="sidebar-dark">
             <!-- Sidebar user (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                <span class="brand-text font-weight-bolder"><a href="#" class="d-block">{{auth()->user()->name}}</a></span>
+                <div class="info">
+                    <a href="#" class="text-lg text-capitalize">{{auth()->user()->name}}</a>
+                </div>
             </div>
 
             <!-- Sidebar Menu -->
@@ -86,6 +87,7 @@
                             </li>
                         </ul>
                     </li>
+
                     @if(auth()->user()->role == 'admin')
                         <li class="nav-item">
                             <a href="{{route('register')}}" class="nav-link">
@@ -101,12 +103,6 @@
                             </a>
                         </li>
                     @endif
-                    <li class="nav-item">
-                        <a href="{{ route('uploadContent') }}" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Upload Content</p>
-                        </a>
-                    </li>
                     <li class="nav-item">
                         <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault();
               document.getElementById('logout-form').submit();">
@@ -131,13 +127,13 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Upload Content</h1>
+                        <h1>Update Content</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
                             <li class="breadcrumb-item "><a href="{{route('training')}}">Data Training</a></li>
-                            <li class="breadcrumb-item active">Upload Content</li>
+                            <li class="breadcrumb-item active">Update Content</li>
                         </ol>
                     </div>
                 </div>
@@ -147,7 +143,7 @@
         <section class="content">
             <div class="container mt-5">
                 <form action="{{route('training.update', $file->id)}}" method="post" enctype="multipart/form-data">
-                    <h3 class="text-center mb-5">Silakan Upload Dokumen Anda</h3>
+                    <h3 class="text-center mb-5">Silakan Update Dokumen Anda</h3>
                     @csrf
                     @if ($message = Session::get('success'))
                         <div class="alert alert-success">
@@ -178,11 +174,13 @@
 
                     <div class="form-group">
                         <label>Title</label>
-                        <input type="text" name="title" class="form-control" value="{{old('title') ?? $file->title}}" readonly>
+                        <input type="text" name="title" class="form-control" value="{{old('title') ?? $file->title}}"
+                               readonly>
                     </div>
                     <div class="form-group">
                         <label>Content</label>
-                        <textarea name="deskripsi" rows="5" cols="40" class="form-control deskripsi">{{old('deskripsi') ?? $file->deskripsi }}</textarea>
+                        <textarea name="deskripsi" rows="5" cols="40"
+                                  class="form-control deskripsi">{{old('deskripsi') ?? $file->deskripsi }}</textarea>
                     </div>
                     <div class="form-group">
                         <input type="text" name="namaFile" class="form-control"
@@ -200,26 +198,31 @@
     </div>
     <!-- /.content-wrapper -->
 
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="/plugins/jquery/jquery.min.js"></script>
+<script src="/themes/adminlte/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/themes/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
-<script src="/js/adminlte.min.js"></script>
+<script src="/themes/adminlte/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="/js/demo.js"></script>
+<script src="/themes/adminlte/dist/js/demo.js"></script>
 <!-- TinyMCE -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.4.2/tinymce.min.js"></script>
-<script type= "text/javascript">tinymce.init({
+<script type="text/javascript">tinymce.init({
         selector: 'textarea',
         min_height: 400,
         element_format: 'html',
-        plugins : "pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,wordcount,advlist,autosave",
+        plugins: "pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,wordcount,advlist,autosave",
     });
 </script>
-
+<!-- page script -->
 </body>
 </html>
