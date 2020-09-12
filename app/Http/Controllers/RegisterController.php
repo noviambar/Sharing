@@ -43,6 +43,7 @@ class RegisterController extends Controller
         $activityuser = new ActivityUser();
         $activityuser->user_id = Auth::user()->id;
         $activityuser->activity = 'Menambahkan Data Karyawan';
+        $activityuser->description = $data->name;
         $activityuser->save();
         return view('profile');
     }

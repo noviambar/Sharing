@@ -77,7 +77,7 @@ class ProfileController extends Controller
 
     public function getActivity($id)
     {
-        $documents = ActivityUser::with('users')->select('id','user_id', 'activity', 'created_at')->where('user_id',$id);
+        $documents = ActivityUser::with('users')->select('id','user_id', 'activity','description', 'created_at')->where('user_id',$id);
 
         return DataTables::of($documents)
             ->editColumn('created_at', function ($documents){

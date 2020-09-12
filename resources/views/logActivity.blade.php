@@ -149,6 +149,7 @@
                                             <tr>
                                                 <th>Nama</th>
                                                 <th>Title</th>
+                                                <th>Activity</th>
                                                 <th>Created_at</th>
                                                 <th>Action</th>
                                             </tr>
@@ -198,6 +199,7 @@
             "columns": [
                 {data: 'name', orderable: false},
                 {data: 'title', orderable: false},
+                {data: 'activity', orderable: false},
                 {data: 'created_at', orderable: false},
                 {data: 'action', orderable: false},
 

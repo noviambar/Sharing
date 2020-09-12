@@ -147,6 +147,7 @@
                                             <thead>
                                             <tr>
                                                 <th>Activity</th>
+                                                <th>Description</th>
                                                 <th>Created_at</th>
                                             </tr>
                                             </thead>
@@ -196,6 +197,7 @@
             "ajax": "{{route('profile.getActivityUser',$id)}}",
             "columns": [
                 {data: 'activity', orderable: false},
+                {data: 'description', orderable: false},
                 {data: 'created_at', orderable: false},
 
             ]

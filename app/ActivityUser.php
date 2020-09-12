@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class ActivityUser extends Model
 {
     protected $fillable = [
-        'user_id', 'activity',
+        'user_id', 'activity','description'
     ];
 
     public function users(){

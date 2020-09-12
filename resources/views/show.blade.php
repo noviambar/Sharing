@@ -22,9 +22,9 @@
         <section class="content">
             <div class="container mt-5">
                 <div class="pull-right">
-                    <a href="{{route('meeting.delete', $file->id)}}" class="btn btn-outline-danger"><i class="fa fa-trash-alt"></i> Delete</a>
                     @if(auth()->user()->role == 'admin')
                         <a href="{{route('logActivity', $file->id)}}" class="btn btn-outline-info"><i class="fa fa-info"></i> Detail</a>
+                        <a href="{{route('meeting.delete', $file->id)}}" class="btn btn-outline-danger"><i class="fa fa-trash-alt"></i> Delete</a>
                     @endif
                     <a href="{{route('meeting.edit', $file->id)}}" class="btn btn-outline-primary"><i class="fa fa-edit"></i> Edit</a>
                 </div>

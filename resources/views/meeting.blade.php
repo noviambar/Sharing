@@ -144,7 +144,7 @@
                                 <div class="pull-right">
                                     <a href="{{route('uploadContent')}}" class="btn btn-success"><i class="fa fa-plus"></i> Add</a>
                                     @if(auth()->user()->role == 'admin')
-                                        <a href="{{route('trashmeeting')}}" class="btn btn-warning"><i class="fa fa-trash-alt"></i> Trash Data Meeting</a>
+                                        <a href="{{route('trashmeeting')}}" class="btn btn-warning"><i class="fa fa-trash-alt"></i> Recycle Bin</a>
                                     @endif
                                 </div>
                                 <div class="card-body">

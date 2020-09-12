@@ -57,11 +57,13 @@ class ContentController extends Controller
         $activity->user_id = Auth::user()->id;
         $activity->name = Auth::user()->name;
         $activity->file_id = $data->id;
+        $activity->activity = 'File Meeting Telah di buat';
         $activity->save();
 
         $activityuser = new ActivityUser();
         $activityuser->user_id = Auth::user()->id;
         $activityuser->activity = 'File Meeting telah dibuat';
+        $activityuser->description = $data->title;
         $activityuser->save();
         return redirect('meeting');
     }
@@ -102,11 +104,13 @@ class ContentController extends Controller
         $activity->user_id = Auth::user()->id;
         $activity->name = Auth::user()->name;
         $activity->file_id = $data->id;
+        $activity->activity = 'File Training telah dibuat';
         $activity->save();
 
         $activityuser = new ActivityUser();
         $activityuser->user_id = Auth::user()->id;
-        $activityuser->activity = 'File Training telah dibuat';;
+        $activityuser->activity = 'File Training telah dibuat';
+        $activityuser->description = $data->title;
         $activityuser->save();
         return redirect('training');
     }

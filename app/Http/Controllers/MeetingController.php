@@ -88,11 +88,13 @@ class MeetingController extends Controller
         $activity->user_id = Auth::user()->id;
         $activity->name = Auth::user()->name;
         $activity->file_id = $file->id;
+        $activity->activity = 'File telah di Update';
         $activity->save();
 
         $activityuser = new ActivityUser();
         $activityuser->user_id = Auth::user()->id;
-        $activityuser->activity = 'User telah melakukan Update Data Meeting';;
+        $activityuser->activity = 'User telah melakukan Update Data Meeting';
+        $activityuser->description = $file->title;
         $activityuser->save();
         return redirect('meeting');
 
@@ -114,7 +116,7 @@ class MeetingController extends Controller
 
     public function getActivity($id)
     {
-        $documents = Activity::with('document')->select('id','name','file_id','user_id', 'title', 'created_at')->where('file_id', $id);
+        $documents = Activity::with('document')->select('id','name','file_id','user_id', 'title','activity', 'created_at')->where('file_id', $id);
 
         return DataTables::of($documents)
             ->editColumn('created_at', function ($documents){
@@ -158,6 +160,7 @@ class MeetingController extends Controller
     public function restore($id){
         $file = File::onlyTrashed()->where('id',$id);
         $file->restore();
+        
         return redirect('meeting');
     }
 

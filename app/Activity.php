@@ -8,7 +8,7 @@ use App\File;
 class Activity extends Model
 {
     protected $fillable = [
-        'title', 'user_id','name','file_id'
+        'title', 'user_id','name','file_id','activity'
     ];
 
     public function document(){

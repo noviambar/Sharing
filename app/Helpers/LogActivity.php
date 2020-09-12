@@ -11,6 +11,7 @@ class LogActivity{
         $log['user_id'] = auth()->user()->id;
         $log['name'] = auth()->user()->name;
         $log['file_id'] = $subject()->id;
+        $log['activity'] = $subject();
         $log['created_at'] = $subject;
         LogActivityModel::created($log);
     }

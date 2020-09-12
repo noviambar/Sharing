@@ -140,7 +140,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <!-- /.card-header -->
-                                <a href="{{route('trash')}}">Recycle Bin</a>
+                                <a href="{{route('trash')}}" class="btn btn-warning"><i class="fa fa-trash-alt"></i> Recycle Bin</a>
                                 <div class="card-body">
                                     <table id="profile" class="table table-bordered table-striped">
                                         <thead>

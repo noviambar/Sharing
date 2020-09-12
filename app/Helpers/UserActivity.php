@@ -9,6 +9,7 @@ class UserActivity{
         $log = [];
         $log['user_id'] = auth()->user()->id;
         $log['activity'] = $subject;
+        $log['description'] = $subject;
         $log['created_at'] = $subject;
         LogActivityModel::created($log);
     }

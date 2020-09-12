@@ -137,61 +137,65 @@
             </div><!-- /.container-fluid -->
         </section>
 
-        <section class="content">
-            <div class="container mt-5">
-                <form action="{{route('uploadTraining')}}" method="post" enctype="multipart/form-data">
-                    <h3 class="text-center mb-5">Silakan Upload Dokumen Anda</h3>
-                    @csrf
-                    @if ($message = Session::get('success'))
-                        <div class="alert alert-success">
-                            <strong>{{ $message }}</strong>
-                        </div>
-                    @endif
+        <div class="card">
+            <div class="card-header">
+                <section class="content">
+                    <div class="container mt-5">
+                        <form action="{{route('uploadTraining')}}" method="post" enctype="multipart/form-data">
+                            <h3 class="text-center mb-5">Silakan Upload Dokumen Anda</h3>
+                            @csrf
+                            @if ($message = Session::get('success'))
+                                <div class="alert alert-success">
+                                    <strong>{{ $message }}</strong>
+                                </div>
+                            @endif
 
-                    @if (count($errors) > 0)
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
+                            @if (count($errors) > 0)
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
 
-                    <div class="form-group">
-                        <label>Nama</label>
-                        <input type="text" name="user_id" class="form-control" value="{{Auth::User()->name}}" readonly>
-                    </div>
+                            <div class="form-group">
+                                <label>Nama</label>
+                                <input type="text" name="user_id" class="form-control" value="{{Auth::User()->name}}" readonly>
+                            </div>
 
-                    <div class="form-group">
-                        <label>Jenis Dokumen</label>
-                        <br>
-                        <select name="jenis_doc">
-                            <option value="">Jenis Dokumen</option>
-                            <option value="Meeting">Meeting</option>
-                            <option value="Training">Training</option>
-                        </select>
+                            <div class="form-group">
+                                <label>Jenis Dokumen</label>
+                                <br>
+                                <select name="jenis_doc">
+                                    <option value="">Jenis Dokumen</option>
+                                    <option value="Meeting">Meeting</option>
+                                    <option value="Training">Training</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Title</label>
+                                <input type="text" name="title" class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label>Content</label>
+                                <textarea name="deskripsi" rows="5" cols="40" class="form-control deskripsi"></textarea>
+                            </div>
+                            <div>
+                                <div class="custom-file">
+                                    <input type="file" name="file" class="form-control-sidebar" id="chooseFile">
+                                    {{--                            <label class="custom-file-label" for="chooseFile"></label>--}}
+                                </div>
+                            </div>
+                            <button type="submit" name="submit" class="btn btn-primary btn-block mt-4">
+                                Upload Content
+                            </button>
+                        </form>
                     </div>
-                    <div class="form-group">
-                        <label>Title</label>
-                        <input type="text" name="title" class="form-control"/>
-                    </div>
-                    <div class="form-group">
-                        <label>Content</label>
-                        <textarea name="deskripsi" rows="5" cols="40" class="form-control deskripsi"></textarea>
-                    </div>
-                    <div>
-                        <div class="custom-file">
-                            <input type="file" name="file" class="form-control-sidebar" id="chooseFile">
-                            {{--                            <label class="custom-file-label" for="chooseFile"></label>--}}
-                        </div>
-                    </div>
-                    <button type="submit" name="submit" class="btn btn-primary btn-block mt-4">
-                        Upload Content
-                    </button>
-                </form>
+                </section>
             </div>
-        </section>
+        </div>
     </div>
     <!-- /.content-wrapper -->
 

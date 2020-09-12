@@ -19,6 +19,7 @@ class CreateActivitiesTable extends Migration
             $table->string('title');
             $table->unsignedBigInteger('user_id');
             $table->string('name');
+            $table->string('activity');
             $table->timestamps();
             $table->foreign('file_id')->references('id')->on('files');
         });
