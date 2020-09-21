@@ -70,7 +70,6 @@ class TrainingController extends Controller
             $fileName = time() . '_' . $request->file->getClientOriginalName();
             $filePath = $request->file('file')->storeAs('uploads', $fileName, 'public');
 
-//            $file->name = time() . '_' . $request->file->getClientOriginalName();
             $file->file_path = $filePath;
             $file->namaFile = $fileName;
         }

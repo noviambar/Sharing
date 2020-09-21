@@ -21,24 +21,10 @@
   <component name="ChangeListManager">
     <list default="true" id="75e17794-c326-487c-bd0e-6776f10f7a7d" name="Default Changelist" comment="first commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Activity.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Activity.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ActivityUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/ActivityUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Helpers/LogActivity.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/LogActivity.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Helpers/UserActivity.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/UserActivity.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ContentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ContentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MeetingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MeetingController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_28_031919_create_activities_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_28_031919_create_activities_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_03_055932_create_activity_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_03_055932_create_activity_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/ActivityUser.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/ActivityUser.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/content.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/content.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/contentTraining.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/contentTraining.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/logActivity.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/logActivity.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/meeting.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/meeting.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TrainingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TrainingController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/UserSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UserSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/training.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/training.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/showTraining.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/showTraining.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -230,6 +216,8 @@
       <workItem from="1599708419583" duration="8498000" />
       <workItem from="1599812159192" duration="1094000" />
       <workItem from="1599876866388" duration="2465000" />
+      <workItem from="1600603299841" duration="96000" />
+      <workItem from="1600685608371" duration="1572000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1598946780549</created>
@@ -310,9 +298,9 @@
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="297" y="153" key="run.anything.popup/0.0.1280.689@0.0.1280.689" timestamp="1598506688923" />
-    <state x="303" y="10" width="672" height="678" key="search.everywhere.popup" timestamp="1599648202874">
+    <state x="303" y="10" width="672" height="678" key="search.everywhere.popup" timestamp="1600603332694">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="303" y="10" width="672" height="678" key="search.everywhere.popup/0.0.1280.689@0.0.1280.689" timestamp="1599648202874" />
+    <state x="303" y="10" width="672" height="678" key="search.everywhere.popup/0.0.1280.689@0.0.1280.689" timestamp="1600603332694" />
   </component>
 </project>

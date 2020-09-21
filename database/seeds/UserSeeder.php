@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
 {
@@ -11,9 +13,9 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        \App\User::create(['name'=>'Administrator',
+        DB::table('users')->insert(['name'=>'Administrator',
         'email'=>'admin@gmail.com',
-        'password'=>bcrypt('123456'),
+        'password'=>bcrypt('12345678'),
         'role' => 'admin',]);
     }
 }
