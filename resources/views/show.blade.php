@@ -26,7 +26,7 @@
                     <a href="{{route('logActivity', $file->id)}}" class="btn btn-outline-info"><i
                             class="fa fa-info"></i> Detail</a>
                 @endif
-                @if(auth()->user()->id == $file->id)
+                @if(auth()->user()->id == $file->user_id)
                     <a href="{{route('meeting.delete', $file->id)}}" class="btn btn-outline-danger"><i
                             class="fa fa-trash-alt"></i> Delete</a>
                 @endif

@@ -1,6 +1,8 @@
 <?php
 
+use App\ActivityUser;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,12 +16,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Auth::routes();
-Route::get('/', function(){
-    if (auth()->check()){
+Route::get('/', function(Request $request){
+    $remember = $request->remember ? true : false;
+
+    $up = $request->only('email','password');
+
+    if (\Illuminate\Support\Facades\Auth::attempt($up, $remember)){
         return redirect()->route('home');
     }else{
         return redirect('login');
     }
+
+
 });
 
 Route::get('/meeting','MeetingController@meeting')->name('meeting');
@@ -65,8 +73,13 @@ Route::get('/profile/delete/{id}', 'ProfileController@delete')->name('profile.de
 Route::get('/profile/restore/{id}', 'ProfileController@restore')->name('profile.restore');
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/home/edit/{id}', 'HomeController@edit')->name('home.edit');
-Route::post('/home/edit/{id}', 'HomeController@update')->name('home.update');
+Route::get('home/edit/{id}', 'HomeController@edit')->name('home.edit');
+Route::post('home/edit/{id}','HomeController@update')->name('home.update');
+
+Route::group(['middleware' => 'auth'], function (){
+    Route::get('home/editPassword', 'HomeController@editPassword')->name('home.editPassword');
+    Route::patch('home/editPassword', 'HomeController@updatePassword')->name('home.updatePassword');
+});
 
 Route::get('/logActivity/getActivity/{id}', 'MeetingController@getActivity')->name('logActivity.getActivity');
 Route::get('/logActivity/{id}', 'MeetingController@logActivity')->name('logActivity');
@@ -74,4 +87,6 @@ Route::get('/logActivity/delete/{id}', 'MeetingController@deleteActivity')->name
 
 Route::get('/profile/getActivityUser/{id}', 'ProfileController@getActivity')->name('profile.getActivityUser');
 Route::get('/profile/logActivity/{id}', 'ProfileController@logActivity')->name('profile.logActivity');
+
+
 

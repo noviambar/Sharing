@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\ActivityUser;
+use App\Http\Requests\UpdatePasswordRequest;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class HomeController extends Controller
@@ -25,6 +29,11 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $activityuser = new ActivityUser();
+        $activityuser->user_id = Auth::user()->id;
+        $activityuser->activity = "User Melakukan Login";
+        $activityuser->description = "Berhasil";
+        $activityuser->save();
         return view('home');
     }
 
@@ -50,8 +59,34 @@ class HomeController extends Controller
         $user->email = $request->email;
         $user->save();
 
-        return redirect('home')->with('status', 'Data has been Update');
+        $activityuser = new ActivityUser();
+        $activityuser->user_id = Auth::user()->id;
+        $activityuser->activity = 'User Melakukan Update Profile';
+        $activityuser->description = "Berhasil";
+        $activityuser->save();
+
+        return redirect('home');
     }
+
+    public function editPassword(){
+        return view('editPassword');
+    }
+
+    public function updatePassword(UpdatePasswordRequest $request){
+
+        $request->user()->update([
+            'password' => Hash::make($request->get('password'))
+        ]);
+
+        $activityuser = new ActivityUser();
+        $activityuser->user_id = Auth::user()->id;
+        $activityuser->activity = 'User Melakukan Update Password';
+        $activityuser->description = " Berhasil ";
+        $activityuser->save();
+        return redirect('editProfile');
+    }
+
+
 
 
 }

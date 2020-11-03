@@ -11,7 +11,6 @@
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
                             <li class="breadcrumb-item active">Dashboard</li>
                         </ol>
                     </div><!-- /.col -->
@@ -20,7 +19,7 @@
                         <div class="card">
                             <div class="card-header p-2">
                                 <ul class="nav nav-pills">
-                                    <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Settings</a></li>
+                                    <a href="{{route('home.edit', auth()->user()->id)}}" class="btn btn-outline-dark"><i class="fa fa-user-cog"></i> Setting</a>
                                 </ul>
                             </div><!-- /.card-header -->
                             <div class="card-body">

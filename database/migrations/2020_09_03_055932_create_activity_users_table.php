@@ -19,6 +19,7 @@ class CreateActivityUsersTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('activity');
             $table->string('description');
+            $table->string('remember_token');
             $table->timestamps();
         });
     }

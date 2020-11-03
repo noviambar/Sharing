@@ -74,7 +74,7 @@ class ContentController extends Controller
             'jenis_doc' => 'required',
             'title' => 'required',
             'deskripsi' => 'required',
-            'file' => 'mimes:csv,txt,xlx,xls,pdf|max:2048'
+            'file' => 'mimes:csv,txt,xlx,xls,pdf,png,jpg,docx|max:2048'
         ]);
 
         if($validator->fails()){

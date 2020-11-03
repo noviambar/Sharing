@@ -88,7 +88,8 @@ class TrainingController extends Controller
 
         $activityuser = new ActivityUser();
         $activityuser->user_id = Auth::user()->id;
-        $activityuser->activity = 'User telah melakukan Update Data Training';;
+        $activityuser->activity = 'User telah melakukan Update Data Training';
+        $activityuser->description = $file->title;
         $activityuser->save();
 
         return redirect('training');
@@ -145,6 +146,19 @@ class TrainingController extends Controller
         $file = File::find($id);
         $file->delete();
 
+        $activity = new Activity();
+        $activity->title = $file->title;
+        $activity->user_id = Auth::user()->id;
+        $activity->name = Auth::user()->name;
+        $activity->file_id = $file->id;
+        $activity->activity = 'File telah di hapus';
+        $activity->save();
+
+        $activityuser = new ActivityUser();
+        $activityuser->user_id = Auth::user()->id;
+        $activityuser->activity = "User Menghapus File";
+        $activityuser->description = $file->title;
+        $activityuser->save();
         return view('training');
     }
 
@@ -156,6 +170,20 @@ class TrainingController extends Controller
     public function restore($id){
         $file = File::onlyTrashed()->where('id',$id);
         $file->restore();
+
+        $activity = new Activity();
+        $activity->title = " ";
+        $activity->user_id = " ";
+        $activity->name = " ";
+        $activity->file_id = " ";
+        $activity->activity = 'File telah di restore';
+        $activity->save();
+
+        $activityuser = new ActivityUser();
+        $activityuser->user_id = Auth::user()->id;
+        $activityuser->activity = "User Mengembalikan File";
+        $activityuser->description = "Berhasil";
+        $activityuser->save();
         return view('training');
     }
 }

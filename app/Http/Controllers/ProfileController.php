@@ -55,6 +55,11 @@ class ProfileController extends Controller
         $user = User::find($id);
         $user->delete();
 
+        $activityuser = new ActivityUser();
+        $activityuser->user_id = \Illuminate\Support\Facades\Auth::user()->id;
+        $activityuser->activity = "User Menghapus Data Karyawan";
+        $activityuser->description = $user->name;
+        $activityuser->save();
         return redirect('profile');
     }
 
@@ -66,6 +71,12 @@ class ProfileController extends Controller
     public function restore($id){
         $user = User::onlyTrashed()->where('id',$id);
         $user->restore();
+
+        $activityuser = new ActivityUser();
+        $activityuser->user_id = \Illuminate\Support\Facades\Auth::user()->id;
+        $activityuser->activity = "User Mengembalikan Data Karyawan";
+        $activityuser->description = " Berhasil ";
+        $activityuser->save();
         return redirect('profile');
     }
 
