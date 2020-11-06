@@ -74,8 +74,12 @@
                     <div class="col-4">
                         <button type="submit" class="btn btn-primary btn-block">Sign In</button>
                     </div>
+                    <div class="col-8">
+                        <a class="float-right" href="{{route('forget-password')}}"> Forgot Password? </a>
+                    </div>
                     <!-- /.col -->
                 </div>
+
             </form>
 
 

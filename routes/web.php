@@ -88,5 +88,13 @@ Route::get('/logActivity/delete/{id}', 'MeetingController@deleteActivity')->name
 Route::get('/profile/getActivityUser/{id}', 'ProfileController@getActivity')->name('profile.getActivityUser');
 Route::get('/profile/logActivity/{id}', 'ProfileController@logActivity')->name('profile.logActivity');
 
+Route::get('forget-password', 'Auth\ForgotPasswordController@getEmail')->name('forget-password');
+Route::post('forget-password','Auth\ForgotPasswordController@postEmail')->name('forget-password');
+
+Route::get('reset-password/{token}','Auth\ResetPasswordController@getPassword');
+Route::post('reset-password', 'Auth\ResetPasswordController@updatePassword');
+
+
+
 
 

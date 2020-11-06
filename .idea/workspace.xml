@@ -23,28 +23,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75e17794-c326-487c-bd0e-6776f10f7a7d" name="Default Changelist" comment="first commit">
-      <change afterPath="$PROJECT_DIR$/resources/views/editPassword.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ContentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ContentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MeetingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MeetingController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TrainingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TrainingController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_03_055932_create_activity_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_03_055932_create_activity_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/ActivityUser.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/ActivityUser.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ForgotPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ForgotPasswordController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/mail.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/mail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/editProfile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/editProfile.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/logActivity.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/logActivity.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/showTraining.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/showTraining.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/trash.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/trash.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/trashMeeting.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/trashMeeting.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/trashTraining.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/trashTraining.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/verify.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/verify.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -183,7 +171,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/auth" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -191,9 +179,11 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/resources/views/auth/reset.blade.php" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\belajar_laravel\resources\views\auth" />
       <recent name="C:\xampp\htdocs\belajar_laravel\resources\views" />
       <recent name="C:\xampp\htdocs\belajar_laravel\app\Helpers" />
     </key>
@@ -245,7 +235,10 @@
       <workItem from="1604288400607" duration="348000" />
       <workItem from="1604289555381" duration="296000" />
       <workItem from="1604318487537" duration="9696000" />
-      <workItem from="1604395874948" duration="12476000" />
+      <workItem from="1604395874948" duration="12641000" />
+      <workItem from="1604460361677" duration="7632000" />
+      <workItem from="1604584546128" duration="6223000" />
+      <workItem from="1604632995235" duration="4724000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1598946780549</created>
@@ -282,7 +275,21 @@
       <option name="project" value="LOCAL" />
       <updated>1600687404160</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="first commit">
+      <created>1604408400358</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1604408400358</updated>
+    </task>
+    <task id="LOCAL-00007" summary="first commit">
+      <created>1604408470466</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1604408470466</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -317,29 +324,37 @@
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="371" y="100" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.689@0.0.1280.689" timestamp="1604406280822" />
+    <state x="93" y="93" width="1095" height="504" key="DiffContextDialog" timestamp="1604463577340">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state x="93" y="93" width="1095" height="504" key="DiffContextDialog/0.0.1280.689@0.0.1280.689" timestamp="1604463577340" />
+    <state x="421" y="100" key="FileChooserDialogImpl" timestamp="1604463453362">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state x="421" y="100" key="FileChooserDialogImpl/0.0.1280.689@0.0.1280.689" timestamp="1604463453362" />
     <state x="796" y="276" key="NewPhpFileDialog" timestamp="1604324300066">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="796" y="276" key="NewPhpFileDialog/0.0.1280.689@0.0.1280.689" timestamp="1604324300066" />
-    <state x="233" y="78" key="Vcs.Push.Dialog.v2" timestamp="1604285820232">
+    <state x="233" y="78" key="Vcs.Push.Dialog.v2" timestamp="1604408477465">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="233" y="78" key="Vcs.Push.Dialog.v2/0.0.1280.689@0.0.1280.689" timestamp="1604285820232" />
+    <state x="233" y="78" key="Vcs.Push.Dialog.v2/0.0.1280.689@0.0.1280.689" timestamp="1604408477465" />
     <state x="458" y="259" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604408362992">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="458" y="259" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.689@0.0.1280.689" timestamp="1604408362992" />
-    <state x="0" y="0" width="587" height="689" key="find.popup" timestamp="1604397057894">
+    <state x="0" y="0" width="587" height="689" key="find.popup" timestamp="1604634820346">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="0" y="0" width="587" height="689" key="find.popup/0.0.1280.689@0.0.1280.689" timestamp="1604397057894" />
+    <state x="0" y="0" width="587" height="689" key="find.popup/0.0.1280.689@0.0.1280.689" timestamp="1604634820346" />
     <state x="297" y="153" key="run.anything.popup" timestamp="1604329528172">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="297" y="153" key="run.anything.popup/0.0.1280.689@0.0.1280.689" timestamp="1604329528172" />
-    <state x="303" y="9" width="672" height="678" key="search.everywhere.popup" timestamp="1604406142221">
+    <state x="303" y="9" width="672" height="678" key="search.everywhere.popup" timestamp="1604589608073">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="303" y="9" width="672" height="678" key="search.everywhere.popup/0.0.1280.689@0.0.1280.689" timestamp="1604406142221" />
+    <state x="303" y="9" width="672" height="678" key="search.everywhere.popup/0.0.1280.689@0.0.1280.689" timestamp="1604589608073" />
   </component>
 </project>
