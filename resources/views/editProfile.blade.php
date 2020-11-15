@@ -22,13 +22,13 @@
 
                             <ul class="list-group list-group-unbordered mb-3">
                                 <li class="list-group-item">
-                                    <b>Nama</b> <a class="float-right">{{Auth::User()->name}}</a>
+                                    <b>Name</b> <a class="float-right">{{Auth::User()->name}}</a>
                                 </li>
                                 <li class="list-group-item">
                                     <b>Email</b> <a class="float-right">{{Auth::User()->email}}</a>
                                 </li>
                                 <li class="list-group-item">
-                                    <b>Posisi</b> <a class="float-right">{{Auth::User()->role}}</a>
+                                    <b>Position</b> <a class="float-right">{{Auth::User()->role}}</a>
                                 </li>
                             </ul>
                         </div>
@@ -47,7 +47,7 @@
                                     <form action="{{route('home.update', Auth()->user()->id)}}" method="POST">
                                         @csrf
                                         <div class="form-group row">
-                                            <label for="name" class="col-sm-2 col-form-label">Nama</label>
+                                            <label for="name" class="col-sm-2 col-form-label">Name</label>
                                             <div class="col-sm-10">
                                                 <input type="text" name= "name" class="form-control" id="name" placeholder="Name" value="{{ old('name') ?? auth()->user()->name }}">
                                             </div>
@@ -59,19 +59,18 @@
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="email" class="col-sm-2 col-form-label">Posisi</label>
+                                            <label for="email" class="col-sm-2 col-form-label">Position</label>
                                             <div class="col-sm-10">
                                                 <input type="text" name= "role" class="form-control" id="role" placeholder="role" value="{{ auth()->user()->role }}" disabled>
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <div class="offset-sm-2 col-sm-10">
-                                                <button type="submit" class="btn btn-outline-danger">Edit</button>
+                                                <button type="submit" class="btn btn-outline-success">Update</button>
+                                                <a href="{{route('home.editPassword')}}" class="btn btn-outline-success"><i class="fa fa-user-edit"></i> Change Password</a>
                                             </div>
                                         </div>
-                                        <ul class="nav nav-pills">
-                                            <a href="{{route('home.editPassword')}}" class="btn btn-outline-success"><i class="fa fa-user-edit"></i> Change Password</a>
-                                        </ul>
+
 
                                     </form>
                                 </div>

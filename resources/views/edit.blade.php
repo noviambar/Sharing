@@ -99,7 +99,7 @@
                         <li class="nav-item">
                             <a href="{{route('profile')}}" class="nav-link">
                                 <i class="nav-icon fas fa-user"></i>
-                                <p>Data Karyawan</p>
+                                <p>Employee Data</p>
                             </a>
                         </li>
                     @endif
@@ -132,11 +132,8 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
-                            <li class="breadcrumb-item "><a href="{{route('meeting')}}">Data Meeting</a></li>
-                            <li class="breadcrumb-item active">
-                                <Update></Update>
-                                Content
-                            </li>
+                            <li class="breadcrumb-item "><a href="{{route('meeting')}}">Meeting Report</a></li>
+                            <li class="breadcrumb-item active"><Update></Update>Update Content</li>
                         </ol>
                     </div>
                 </div>
@@ -146,7 +143,7 @@
         <section class="content">
             <div class="container mt-5">
                 <form action="{{route('meeting.update', $file->id)}}" method="post" enctype="multipart/form-data">
-                    <h3 class="text-center mb-5">Silakan Update Dokumen Anda</h3>
+                    <h3 class="text-center mb-5">Edit Your Content Here...!!!</h3>
                     @csrf
                     @if ($message = Session::get('success'))
                         <div class="alert alert-success">
@@ -192,7 +189,7 @@
                         </div>
                     </div>
                     <button type="submit" name="submit" class="btn btn-primary btn-block mt-4">
-                        Upload Content
+                        Update Content
                     </button>
                 </form>
             </div>

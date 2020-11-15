@@ -137,7 +137,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
-                            <li class="breadcrumb-item"><a href="{{route('profile')}}">Data Karyawan</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('profile')}}">Employee Data</a></li>
                             <li class="breadcrumb-item active">Recycle Bin</li>
                         </ol>
                     </div>
@@ -153,14 +153,14 @@
                         <div class="card">
                             <div class="card-header">
                                 <!-- /.card-header -->
-                                <a href="{{route('profile')}}">Data Karyawan</a>
+                                <a href="{{route('profile')}}">Employee Data</a>
                                 <div class="card-body">
                                     <table id="trash" class="table table-bordered table-striped">
                                         <thead>
                                         <tr>
-                                            <th>Nama</th>
+                                            <th>Name</th>
                                             <th>Email</th>
-                                            <th>Role</th>
+                                            <th>Position</th>
                                             <th>Created_at</th>
                                             <th>Action</th>
                                         </tr>

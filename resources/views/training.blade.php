@@ -92,7 +92,7 @@
                         <li class="nav-item">
                             <a href="{{route('profile')}}" class="nav-link">
                                 <i class="nav-icon fas fa-user"></i>
-                                <p>Data Karyawan</p>
+                                <p>Employee Data</p>
                             </a>
                         </li>
                     @endif
@@ -120,12 +120,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Data Training</h1>
+                        <h1>Training Report</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Data Training</li>
+                            <li class="breadcrumb-item active">Training Report</li>
                         </ol>
                     </div>
                 </div>
@@ -150,9 +150,9 @@
                                     <table id="training" class="table table-bordered table-striped">
                                         <thead>
                                         <tr>
-                                            <th>Nama</th>
+                                            <th>Name</th>
                                             <th>Title</th>
-                                            <th>Jenis Dokumen</th>
+                                            <th>Document Type</th>
                                             <th>Created_at</th>
                                             <th>Action</th>
                                         </tr>

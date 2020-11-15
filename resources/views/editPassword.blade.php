@@ -23,13 +23,13 @@
 
                             <ul class="list-group list-group-unbordered mb-3">
                                 <li class="list-group-item">
-                                    <b>Nama</b> <a class="float-right">{{Auth::User()->name}}</a>
+                                    <b>Name</b> <a class="float-right">{{Auth::User()->name}}</a>
                                 </li>
                                 <li class="list-group-item">
                                     <b>Email</b> <a class="float-right">{{Auth::User()->email}}</a>
                                 </li>
                                 <li class="list-group-item">
-                                    <b>Posisi</b> <a class="float-right">{{Auth::User()->role}}</a>
+                                    <b>Position</b> <a class="float-right">{{Auth::User()->role}}</a>
                                 </li>
                             </ul>
                         </div>
@@ -98,7 +98,7 @@
                                         </div>
                                         <div class="form-group row">
                                             <div class="offset-sm-2 col-sm-10">
-                                                <button type="submit" class="btn btn-outline-danger">Edit</button>
+                                                <button type="submit" class="btn btn-outline-success">Edit</button>
                                             </div>
                                         </div>
                                     </form>

@@ -28,7 +28,7 @@
                                     <form action="{{route('home.update', Auth()->user()->id)}}" method="POST">
                                         @csrf
                                         <div class="form-group row">
-                                            <label for="name" class="col-sm-2 col-form-label">Nama</label>
+                                            <label for="name" class="col-sm-2 col-form-label">Name</label>
                                             <div class="col-sm-10">
                                                 <input type="text" name= "name" class="form-control" id="name" placeholder="Name" value="{{ old('name') ?? auth()->user()->name }}">
                                             </div>
@@ -40,14 +40,9 @@
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="email" class="col-sm-2 col-form-label">Posisi</label>
+                                            <label for="email" class="col-sm-2 col-form-label">Position</label>
                                             <div class="col-sm-10">
                                                 <input type="text" name= "role" class="form-control" id="role" placeholder="role" value="{{ auth()->user()->role }}" disabled>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <div class="offset-sm-2 col-sm-10">
-                                                <button type="submit" class="btn btn-danger">Edit</button>
                                             </div>
                                         </div>
                                     </form>

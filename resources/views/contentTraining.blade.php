@@ -97,7 +97,7 @@
                         <li class="nav-item">
                             <a href="{{route('profile')}}" class="nav-link">
                                 <i class="nav-icon fas fa-user"></i>
-                                <p>Data Karyawan</p>
+                                <p>Employee Data</p>
                             </a>
                         </li>
                     @endif
@@ -142,7 +142,7 @@
                 <section class="content">
                     <div class="container mt-5">
                         <form action="{{route('uploadTraining')}}" method="post" enctype="multipart/form-data">
-                            <h3 class="text-center mb-5">Silakan Upload Dokumen Anda</h3>
+                            <h3 class="text-center mb-2">Upload Your Content Here...!!!</h3>
                             @csrf
                             @if ($message = Session::get('success'))
                                 <div class="alert alert-success">
@@ -161,15 +161,15 @@
                             @endif
 
                             <div class="form-group">
-                                <label>Nama</label>
+                                <label>Name</label>
                                 <input type="text" name="user_id" class="form-control" value="{{Auth::User()->name}}" readonly>
                             </div>
 
                             <div class="form-group">
-                                <label>Jenis Dokumen</label>
+                                <label>Document Type</label>
                                 <br>
                                 <select name="jenis_doc">
-                                    <option value="">Jenis Dokumen</option>
+                                    <option value="">Document Type</option>
                                     <option value="Meeting">Meeting</option>
                                     <option value="Training">Training</option>
                                 </select>

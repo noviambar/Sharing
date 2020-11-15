@@ -93,7 +93,7 @@
                         <li class="nav-item">
                             <a href="{{route('profile')}}" class="nav-link">
                                 <i class="nav-icon fas fa-user"></i>
-                                <p>Data Karyawan</p>
+                                <p>Employee Data</p>
                             </a>
                         </li>
                     @endif
@@ -141,13 +141,13 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <a href="{{route('meeting')}}">Data Meeting </a> |
-                                    <a href="{{route('training')}}"> Data Training</a>
+                                    <a href="{{route('meeting')}}">Meeting Report </a> |
+                                    <a href="{{route('training')}}">Training Report</a>
                                     <div class="card-body">
                                         <table id="activity" class="table table-bordered table-striped">
                                             <thead>
                                             <tr>
-                                                <th>Nama</th>
+                                                <th>Name</th>
                                                 <th>Title</th>
                                                 <th>Activity</th>
                                                 <th>Created_at</th>

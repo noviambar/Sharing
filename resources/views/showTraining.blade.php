@@ -11,7 +11,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
-                        <li class="breadcrumb-item"><a href="{{route('training')}}">Data Training</a></li>
+                        <li class="breadcrumb-item"><a href="{{route('training')}}">Training Report</a></li>
                         <li class="breadcrumb-item active">View</li>
                     </ol>
                 </div>
@@ -53,7 +53,7 @@
                 @endif
 
                 <div class="form-group">
-                    <label>Jenis Dokumen</label>
+                    <label>Document Type</label>
                     <input type="text" name="jenis_doc" class="form-control"
                            value="{{old('jenis_doc') ?? $file->jenis_doc }}" readonly>
                 </div>

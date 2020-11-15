@@ -93,7 +93,7 @@
                         <li class="nav-item">
                             <a href="{{route('profile')}}" class="nav-link">
                                 <i class="nav-icon fas fa-user"></i>
-                                <p>Data Karyawan</p>
+                                <p>Employee Data</p>
                             </a>
                         </li>
                     @endif
@@ -126,7 +126,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Trash Data Meeting</li>
+                            <li class="breadcrumb-item active">Trash Meeting Report</li>
                         </ol>
                     </div>
                 </div>
@@ -142,15 +142,15 @@
                             <div class="card-header">
                                 <!-- /.card-header -->
                                 <div class="pull-right">
-                                    <a href="{{route('meeting')}}" class="btn btn-success"><i class="fa fa-file"></i> Data Meeting</a>
+                                    <a href="{{route('meeting')}}" class="btn btn-success"><i class="fa fa-file"></i> Meeting Report</a>
                                 </div>
                                 <div class="card-body">
                                     <table id="trashmeeting" class="table table-bordered table-striped">
                                         <thead>
                                         <tr>
-                                            <th>Nama</th>
+                                            <th>Name</th>
                                             <th>Title</th>
-                                            <th>Jenis Dokumen</th>
+                                            <th>Document Type</th>
                                             <th>Created_at</th>
                                             <th>Action</th>
                                         </tr>

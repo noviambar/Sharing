@@ -25,7 +25,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <!-- /.card-header -->
-                                <h3 class="text-center mb-5">Input Data Karyawan</h3>
+                                <h3 class="text-center mb-3">Employee Data Entry</h3>
                                 <div class="card-body">
                                     <form method="POST" action="{{route('postRegister')}}">
                                         @csrf
@@ -79,7 +79,7 @@
                                         </div>
                                         <div class="form-group row">
                                             <label for="name"
-                                                   class="col-md-4 col-form-label text-md-right">{{__('Role' )}}</label>
+                                                   class="col-md-4 col-form-label text-md-right">{{__('Position' )}}</label>
                                             <div class="col-md-6">
                                                 <select name="role">
                                                     <option value="">Role</option>
