@@ -171,21 +171,21 @@ class MeetingController extends Controller
     }
 
     public function restore($id){
-        $file = File::onlyTrashed()->where('id',$id);
+        $file = File::withTrashed()->where('id',$id)->first();
         $file->restore();
 
         $activity = new Activity();
         $activity->title = $file->title;
-        $activity->user_id = " ";
-        $activity->name = " ";
-        $activity->file_id = " ";
+        $activity->user_id = Auth::user()->id;
+        $activity->name = Auth::user()->name;
+        $activity->file_id = $id;
         $activity->activity = 'File telah di restore';
         $activity->save();
 
         $activityuser = new ActivityUser();
         $activityuser->user_id = Auth::user()->id;
         $activityuser->activity = "User Mengembalikan File";
-        $activityuser->description = "Berhasil";
+        $activityuser->description = $file->title;
         $activityuser->save();
 
         return redirect('meeting');

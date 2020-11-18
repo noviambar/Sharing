@@ -30,13 +30,13 @@
                                         <div class="form-group row">
                                             <label for="name" class="col-sm-2 col-form-label">Name</label>
                                             <div class="col-sm-10">
-                                                <input type="text" name= "name" class="form-control" id="name" placeholder="Name" value="{{ old('name') ?? auth()->user()->name }}">
+                                                <input type="text" name= "name" class="form-control" id="name" placeholder="Name" value="{{ old('name') ?? auth()->user()->name }}" disabled>
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="email" class="col-sm-2 col-form-label">Email</label>
                                             <div class="col-sm-10">
-                                                <input type="email" name= "email" class="form-control" id="email" placeholder="Email@gmail.com" value="{{ old('name') ?? auth()->user()->email }}">
+                                                <input type="email" name= "email" class="form-control" id="email" placeholder="Email@gmail.com" value="{{ old('name') ?? auth()->user()->email }}" disabled>
                                             </div>
                                         </div>
                                         <div class="form-group row">

@@ -69,13 +69,13 @@ class ProfileController extends Controller
     }
 
     public function restore($id){
-        $user = User::onlyTrashed()->where('id',$id);
+        $user = User::withTrashed()->where('id',$id)->first();
         $user->restore();
 
         $activityuser = new ActivityUser();
         $activityuser->user_id = \Illuminate\Support\Facades\Auth::user()->id;
         $activityuser->activity = "User Mengembalikan Data Karyawan";
-        $activityuser->description = " Berhasil ";
+        $activityuser->description = $user->name;
         $activityuser->save();
         return redirect('profile');
     }
