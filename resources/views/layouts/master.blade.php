@@ -99,7 +99,7 @@
                         <li class="nav-item">
                             <a href="{{route('profile')}}" class="nav-link">
                                 <i class="nav-icon fas fa-user"></i>
-                                <p>Employee Data</p>
+                                <p>Employees Data</p>
                             </a>
                         </li>
                     @endif

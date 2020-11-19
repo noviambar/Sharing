@@ -93,7 +93,7 @@
                         <li class="nav-item">
                             <a href="{{route('profile')}}" class="nav-link">
                                 <i class="nav-icon fas fa-user"></i>
-                                <p>Employee Data</p>
+                                <p>Employees Data</p>
                             </a>
                         </li>
                     @endif
@@ -143,7 +143,7 @@
                             <div class="card-header">
                                 <!-- /.card-header -->
                                 <div class="pull-right">
-                                    <a href="{{route('training')}}" class="btn btn-success"><i class="fa fa-plus"></i> Training Report</a>
+                                    <a href="{{route('training')}}" class="btn btn-success"><i class="fa fa-file"></i> Training Report</a>
                                 </div>
                                 <div class="card-body">
                                     <table id="trashtraining" class="table table-bordered table-striped">

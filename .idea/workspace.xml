@@ -24,9 +24,12 @@
   <component name="ChangeListManager">
     <list default="true" id="75e17794-c326-487c-bd0e-6776f10f7a7d" name="Default Changelist" comment="first commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MeetingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MeetingController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TrainingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TrainingController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/meeting.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/meeting.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/training.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/training.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/trash.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/trash.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/trashTraining.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/trashTraining.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +167,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/auth" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -176,6 +179,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\sharing_knowledge" />
       <recent name="C:\xampp\htdocs\belajar_laravel\resources\views\auth" />
       <recent name="C:\xampp\htdocs\belajar_laravel\resources\views" />
       <recent name="C:\xampp\htdocs\belajar_laravel\app\Helpers" />
@@ -234,6 +238,7 @@
       <workItem from="1604632995235" duration="4986000" />
       <workItem from="1605439175598" duration="4393000" />
       <workItem from="1605668224320" duration="2335000" />
+      <workItem from="1605762468473" duration="3645000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1598946780549</created>
@@ -325,10 +330,10 @@
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="402" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1280.689@0.0.1280.689" timestamp="1604395977959" />
-    <state x="371" y="92" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1598241344629">
+    <state x="371" y="92" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605762722138">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="371" y="92" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.689@0.0.1280.689" timestamp="1598241344629" />
+    <state x="371" y="92" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.689@0.0.1280.689" timestamp="1605762722138" />
     <state x="371" y="100" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1604406280822">
       <screen x="0" y="0" width="1280" height="689" />
     </state>

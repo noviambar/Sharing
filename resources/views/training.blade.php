@@ -44,11 +44,11 @@
         </a>
 
         <!-- Sidebar -->
-        <div class="sidebar-dark">
+        <div class="sidebar">
             <!-- Sidebar user (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="info">
-                    <a href="#" class="text-lg text-capitalize">{{auth()->user()->name}}</a>
+                    <a href="{{route('home')}}" class="text-lg text-capitalize">{{auth()->user()->name}}</a>
                 </div>
             </div>
 
@@ -92,7 +92,7 @@
                         <li class="nav-item">
                             <a href="{{route('profile')}}" class="nav-link">
                                 <i class="nav-icon fas fa-user"></i>
-                                <p>Employee Data</p>
+                                <p>Employees Data</p>
                             </a>
                         </li>
                     @endif
